@@ -6,15 +6,15 @@
     var sectionTimes = {};
     var pageStart = Date.now();
 
-    // Country detection — wrapped in try so it never blocks anything
+    // Country detection via same-origin Vercel function (no cross-origin prompt)
     try {
-      var xhr = new XMLHttpRequest();
-      xhr.open('GET', 'https://ipapi.co/json/', true);
-      xhr.timeout = 5000;
-      xhr.onload = function() {
-        try { var d = JSON.parse(xhr.responseText); country = d.country_name || 'Unknown'; } catch(e) {}
+      var geoXhr = new XMLHttpRequest();
+      geoXhr.open('GET', '/api/geo', true);
+      geoXhr.timeout = 5000;
+      geoXhr.onload = function() {
+        try { var d = JSON.parse(geoXhr.responseText); country = d.country_name || 'Unknown'; } catch(e) {}
       };
-      xhr.send();
+      geoXhr.send();
     } catch(e) {}
 
     // Track sections
@@ -44,7 +44,7 @@
           navigator.sendBeacon(GVA, payload);
         } else {
           var x = new XMLHttpRequest();
-          x.open('POST', GVA, false);
+          x.open('POST', GVA, true);
           x.setRequestHeader('Content-Type', 'application/json');
           x.send(payload);
         }
