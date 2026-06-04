@@ -118,7 +118,7 @@ h1, h2, h3, p { margin-top: 0; }
   background-size: cover;
   transition: opacity 260ms ease, transform 900ms ease, filter 900ms ease;
   will-change: transform;
-  background-image: url('https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=2200&q=82');
+  background-image: url('./assets/slide-1.jpg');
 }
 .hero-stage:hover .hero-image {
   filter: saturate(1.06) contrast(1.04);
@@ -852,8 +852,9 @@ h3 {
 .contact-addresses span { font-size: 12px; color: var(--muted); line-height: 1.5; }
 .contact-form { display: grid; gap: 14px; padding: 28px; background: var(--white); border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow); }
 .form-title { margin: 0 0 4px; font-size: 18px; font-weight: 700; color: var(--ink); }
-label { display: grid; gap: 6px; color: #314139; font-weight: 700; font-size: 13px; }
-.req { color: #c0392b; font-weight: 400; }
+label { display: flex; flex-direction: column; gap: 6px; color: #314139; font-weight: 700; font-size: 13px; }
+label > span { white-space: nowrap; }
+.req { color: #c0392b; display: inline; }
 input, textarea, select { width: 100%; border: 1px solid var(--line); border-radius: 6px; padding: 11px 13px; font: inherit; font-size: 14px; color: var(--ink); background: #fbfcfa; box-sizing: border-box; }
 textarea { resize: vertical; }
 select { appearance: auto; }
@@ -861,6 +862,9 @@ select { appearance: auto; }
 .form-fieldset legend { font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; padding: 0 6px; }
 .contact-form .btn { width: 100%; border: 0; margin-top: 4px; }
 .form-micro-text { font-size: 11px; color: var(--muted); text-align: center; margin: 0; }
+.footer-logos { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.footer-logos .jata-logo { height: 36px; }
+.footer-logos .huadian-logo { height: 60px; }
 
 .site-footer {
   display: flex;

@@ -149,10 +149,21 @@
         </dl>
       </div>
       <form class="contact-form">
-        <label>Full Name<input type="text" name="name" placeholder="Your name" required /></label>
-        <label>Company<input type="text" name="company" placeholder="Your Company Ltd." required /></label>
-        <label>Email<input type="email" name="email" placeholder="name@company.com" required /></label>
-        <label>Phone<input type="tel" name="phone" placeholder="+1 234 567 8900" /></label>
+        <label><span>Full Name <span class="req">*</span></span><input type="text" name="name" placeholder="Your name" required /></label>
+        <label><span>Company <span class="req">*</span></span><input type="text" name="company" placeholder="Your Company Ltd." required /></label>
+        <label>Country / Region
+          <select id="continentSelect" style="margin-bottom:8px"><option value="">Select continent</option></select>
+          <select name="country" id="countrySelect"><option value="">Select country</option></select>
+        </label>
+        <label><span>Email <span class="req">*</span></span><input type="email" name="email" placeholder="name@company.com" required /></label>
+        <label>Phone
+          <div style="display:flex;gap:8px">
+            <select name="phoneCode" style="width:120px;flex-shrink:0">
+              <option value="+1">+1 US/CA</option><option value="+44">+44 UK</option><option value="+49">+49 Germany</option><option value="+33">+33 France</option><option value="+39">+39 Italy</option><option value="+34">+34 Spain</option><option value="+31">+31 Netherlands</option><option value="+32">+32 Belgium</option><option value="+41">+41 Switzerland</option><option value="+43">+43 Austria</option><option value="+46">+46 Sweden</option><option value="+47">+47 Norway</option><option value="+45">+45 Denmark</option><option value="+358">+358 Finland</option><option value="+354">+354 Iceland</option><option value="+353">+353 Ireland</option><option value="+351">+351 Portugal</option><option value="+30">+30 Greece</option><option value="+48">+48 Poland</option><option value="+420">+420 Czech</option><option value="+40">+40 Romania</option><option value="+36">+36 Hungary</option><option value="+90">+90 Turkey</option><option value="+7">+7 Russia</option><option value="+380">+380 Ukraine</option><option value="+375">+375 Belarus</option><option value="+86">+86 China</option><option value="+81">+81 Japan</option><option value="+82">+82 Korea</option><option value="+91">+91 India</option><option value="+65">+65 Singapore</option><option value="+60">+60 Malaysia</option><option value="+62">+62 Indonesia</option><option value="+66">+66 Thailand</option><option value="+84">+84 Vietnam</option><option value="+63">+63 Philippines</option><option value="+95">+95 Myanmar</option><option value="+880">+880 Bangladesh</option><option value="+92">+92 Pakistan</option><option value="+971">+971 UAE</option><option value="+966">+966 Saudi</option><option value="+974">+974 Qatar</option><option value="+965">+965 Kuwait</option><option value="+968">+968 Oman</option><option value="+973">+973 Bahrain</option><option value="+98">+98 Iran</option><option value="+972">+972 Israel</option><option value="+55">+55 Brazil</option><option value="+52">+52 Mexico</option><option value="+54">+54 Argentina</option><option value="+56">+56 Chile</option><option value="+57">+57 Colombia</option><option value="+51">+51 Peru</option><option value="+58">+58 Venezuela</option><option value="+61">+61 Australia</option><option value="+64">+64 New Zealand</option><option value="+27">+27 South Africa</option><option value="+234">+234 Nigeria</option><option value="+20">+20 Egypt</option><option value="+254">+254 Kenya</option><option value="+212">+212 Morocco</option><option value="+251">+251 Ethiopia</option>
+            </select>
+            <input type="tel" name="phone" placeholder="Phone number" style="flex:1" />
+          </div>
+        </label>
         <label>Project Details<textarea name="message" rows="4" placeholder="Fuel type, boiler specs, target NOx level, flue gas conditions, catalyst quantity, timeline..." required></textarea></label>
         <button class="btn primary" type="submit">Submit Inquiry</button>
       </form>
@@ -161,7 +172,9 @@
 
   <footer class="site-footer">
     <div>
-      <strong>JATA</strong>
+      <div class="footer-logos">
+        <img class="brand-logo jata-logo" src="./assets/jata-logo-white.png" alt="JATA" />
+      </div>
       <p>Qingdao Jata Environmental Technology Co., Ltd<br>Manufacturing by Huadian Qingdao Environmental Technology Co., Ltd<br>A subsidiary of China Huadian Corporation Ltd.</p>
     </div>
     <div class="footer-links">
@@ -170,10 +183,19 @@
       <a href="#impact">Technology</a>
       <a href="#insights">Company</a>
       <a href="#contact">Contact</a>
+      <a href="./privacy.html">Privacy</a>
     </div>
   </footer>
 
-  <script src="./config.js"></script>
+  <div id="cookieBar" style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(15,23,34,0.95);color:rgba(255,255,255,0.85);padding:12px 24px;display:none;align-items:center;justify-content:center;gap:20px;font-size:13px;backdrop-filter:blur(12px)">
+  <span>We use cookies to ensure the best experience. By continuing, you agree to our <a href="./privacy.html" style="color:#a3d9b1;text-decoration:underline">Privacy Policy</a>.</span>
+  <button onclick="acceptCookies()" style="background:var(--jata-green);color:#fff;border:none;padding:8px 20px;border-radius:4px;cursor:pointer;font-size:13px;font-weight:700;white-space:nowrap">Accept</button>
+</div>
+<script>
+(function(){if(!localStorage.getItem('cookiesAccepted')){document.getElementById('cookieBar').style.display='flex'}}());
+function acceptCookies(){localStorage.setItem('cookiesAccepted','1');document.getElementById('cookieBar').style.display='none'}
+</script>
+<script src="./config.js"></script>
   <script src="./script.js"></script>
   <script src="./analytics.js"></script>
     </body>

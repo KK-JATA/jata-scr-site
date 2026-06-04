@@ -40,19 +40,31 @@ const form = document.querySelector('.contact-form');
 if (form) {
   form.addEventListener('submit', (event) => {
     event.preventDefault();
+    var emailInput = event.currentTarget.querySelector('input[type=email]');
+    var emailVal = (emailInput.value || '').trim();
+    if (!emailVal || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+      showToast('Please enter a valid email address.', true);
+      return;
+    }
+
     var button = event.currentTarget.querySelector('button');
     var original = button.textContent;
     button.textContent = 'Sending...';
     button.disabled = true;
 
     var fd = new FormData(event.currentTarget);
+    var phoneCode = (fd.get('phoneCode') || '').trim();
+    var phoneNum = (fd.get('phone') || '').trim();
+    var fullPhone = phoneCode && phoneNum ? phoneCode + ' ' + phoneNum : phoneNum;
+    var countryVal = (fd.get('country') || '').trim();
+
     var lead = {
       customerName: (fd.get('company') || '').trim() || (fd.get('name') || '').trim(),
       contactPerson: (fd.get('name') || '').trim(),
       email: (fd.get('email') || '').trim(),
-      phone: (fd.get('phone') || '').trim(),
+      phone: fullPhone,
       leadSource: '独立站官网',
-      requirementDesc: (fd.get('message') || '').trim(),
+      requirementDesc: (fd.get('message') || '').trim() + (countryVal ? '\nCountry: ' + countryVal : ''),
       referrer: document.referrer || window.location.href
     };
 
@@ -65,7 +77,6 @@ if (form) {
 
     // Try to submit to GVA
     var url = (typeof API_BASE !== 'undefined' ? API_BASE : 'http://localhost:8888') + '/biz/public/lead';
-      console.log("POST", url, JSON.stringify(lead));
     fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'x-tenant-id': '2' },
@@ -98,7 +109,6 @@ if (form) {
       if (!pending.length) return;
     } catch(e) { return; }
     var url = (typeof API_BASE !== 'undefined' ? API_BASE : 'http://localhost:8888') + '/biz/public/lead';
-      console.log("POST", url, JSON.stringify(lead));
     var p = JSON.parse(localStorage.getItem('pendingLeads') || '[]');
     var remaining = [];
     var count = p.length;
@@ -269,7 +279,7 @@ function scheduleNextSlide() {
   heroTimer = window.setTimeout(() => {
     setHeroSlide((activeHeroIndex + 1) % heroSlides.length);
     scheduleNextSlide();
-  }, HERO_INTERVAL);
+  }, 9000);
 }
 
 function restartAutoRotate() {
@@ -316,6 +326,27 @@ if (companyVideo) {
   companyVideo.addEventListener('play', () => hero.classList.add('playing'));
   companyVideo.addEventListener('pause', () => hero.classList.remove('playing'));
 }
+
+// Continent → Country cascading dropdown
+(function(){
+  var countries = {
+    'North America': ['United States','Canada','Mexico','Cuba','Dominican Republic','Guatemala','Honduras','El Salvador','Nicaragua','Costa Rica','Panama','Jamaica','Bahamas','Trinidad and Tobago'],
+    'South America': ['Brazil','Argentina','Chile','Colombia','Peru','Venezuela','Ecuador','Bolivia','Paraguay','Uruguay','Guyana','Suriname'],
+    'Europe': ['Germany','United Kingdom','France','Italy','Spain','Netherlands','Belgium','Switzerland','Austria','Sweden','Norway','Denmark','Finland','Iceland','Ireland','Portugal','Greece','Poland','Czech Republic','Romania','Hungary','Bulgaria','Croatia','Slovakia','Slovenia','Lithuania','Latvia','Estonia','Luxembourg','Malta','Cyprus','Serbia','Ukraine','Belarus','Moldova','Georgia','Armenia','Azerbaijan'],
+    'Asia': ['China','Japan','South Korea','India','Singapore','Malaysia','Indonesia','Thailand','Vietnam','Philippines','Myanmar','Bangladesh','Pakistan','Sri Lanka','Nepal','Cambodia','Laos','Mongolia','Kazakhstan','Uzbekistan','Turkmenistan','Kyrgyzstan','Tajikistan','Taiwan','Hong Kong','Macau'],
+    'Middle East': ['UAE','Saudi Arabia','Qatar','Kuwait','Oman','Bahrain','Israel','Jordan','Lebanon','Iraq','Iran','Yemen','Syria','Palestine'],
+    'Africa': ['South Africa','Nigeria','Egypt','Kenya','Morocco','Ethiopia','Tanzania','Ghana','Uganda','Algeria','Tunisia','Libya','Sudan','Angola','Mozambique','Zimbabwe','Zambia','Botswana','Namibia','Mauritius','Senegal','Ivory Coast','Cameroon','Rwanda'],
+    'Oceania': ['Australia','New Zealand','Fiji','Papua New Guinea','Solomon Islands','Vanuatu','Samoa']
+  };
+  var cont = document.getElementById('continentSelect');
+  var cntr = document.getElementById('countrySelect');
+  Object.keys(countries).forEach(function(c){ var o=document.createElement('option'); o.value=c; o.textContent=c; cont.appendChild(o) });
+  cont.addEventListener('change', function(){
+    cntr.innerHTML = '<option value="">Select country</option>';
+    var list = countries[cont.value] || [];
+    list.forEach(function(c){ var o=document.createElement('option'); o.value=c; o.textContent=c; cntr.appendChild(o) });
+  });
+})();
 
 // Gallery lightbox — factory images + cert row
 const galleryImages = document.querySelectorAll('.factory-gallery img, .cert-row img');
