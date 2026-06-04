@@ -18,3 +18,5 @@ PROJECT_SUMMARY.md
 ffmpeg*/
 ffmpeg*.zip
 tools/
+node_modules/
+package-lock.json
