@@ -9,8 +9,24 @@
   <link rel="shortcut icon" href="./assets/favicon.svg" />
   <link rel="icon" type="image/png" href="./favicon.png" />
   <link rel="stylesheet" href="./styles.css" />
+  <link rel="preload" as="image" href="./assets/slide-1.jpg">
+  <link rel="preload" as="image" href="./assets/slide-2.jpg">
+  <link rel="preload" as="image" href="./assets/slide-3.jpg">
+  <link rel="preload" as="image" href="./assets/slide-4.jpg">
+  <link rel="preload" as="image" href="./assets/slide-5.jpg">
+  <link rel="preload" as="image" href="./assets/jata-logo-white.png">
 </head>
 <body>
+  <!-- Preloader: curtain reveal -->
+  <div id="preloader">
+    <div class="preloader-curtain curtain-left"></div>
+    <div class="preloader-curtain curtain-right"></div>
+    <div class="preloader-center">
+      <img class="preloader-logo" src="./assets/jata-logo-white.png" alt="JATA" />
+      <div class="preloader-spinner"></div>
+    </div>
+  </div>
+
   <header class="site-header" data-header>
     <a class="brand-group" href="#top" aria-label="JATA and Huadian Home">
       <img class="brand-logo jata-logo" src="./assets/jata-logo.png" alt="JATA logo" />
@@ -190,6 +206,22 @@
 <script>
 (function(){if(!localStorage.getItem('cookiesAccepted')){document.getElementById('cookieBar').style.display='flex'}}());
 function acceptCookies(){localStorage.setItem('cookiesAccepted','1');document.getElementById('cookieBar').style.display='none'}
+</script>
+<script>
+(function(){
+  var p = document.getElementById('preloader');
+
+  // Curtains slide open after 2s
+  setTimeout(function(){
+    p.classList.add('is-open');
+  }, 2000);
+
+  // Remove preloader after curtains finish
+  setTimeout(function(){
+    p.classList.add('is-done');
+    setTimeout(function(){ p.remove(); }, 400);
+  }, 3100);
+})();
 </script>
 <script src="./config.js"></script>
   <script src="./script.js"></script>
