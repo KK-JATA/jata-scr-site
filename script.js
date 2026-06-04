@@ -73,8 +73,13 @@ window.addEventListener('scroll', () => {
 
 const form = document.querySelector('.contact-form');
 if (form) {
+  var formSubmitting = false;
   form.addEventListener('submit', (event) => {
     event.preventDefault();
+    if (formSubmitting) return;
+    formSubmitting = true;
+    setTimeout(function(){ formSubmitting = false; }, 5000);
+
     var emailInput = event.currentTarget.querySelector('input[type=email]');
     var emailVal = (emailInput.value || '').trim();
     if (!emailVal || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
