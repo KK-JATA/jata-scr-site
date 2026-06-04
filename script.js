@@ -36,6 +36,41 @@ window.addEventListener('scroll', () => {
   header.classList.toggle('has-shadow', window.scrollY > 8);
 });
 
+// Scroll spy: underline nav link matching visible section
+(function(){
+  var navLinks = Array.from(document.querySelectorAll('.site-nav a'));
+  // Map nav href → section element  (Home → hero, not the whole <main>)
+  var sectionMap = navLinks.map(function(a) {
+    var href = a.getAttribute('href');
+    if (href === '#top') return document.querySelector('.hero');
+    return document.querySelector(href);
+  }).filter(Boolean);
+
+  var visible = {};
+  var observer = new IntersectionObserver(function(entries) {
+    for (var i = 0; i < entries.length; i++) {
+      // Identify each section by its class or id
+      var key = entries[i].target.classList.contains('hero') ? 'hero'
+        : entries[i].target.id || entries[i].target.className;
+      visible[key] = entries[i].isIntersecting;
+    }
+    // Pick the first visible section (topmost in DOM order)
+    var active = null;
+    for (var j = 0; j < sectionMap.length; j++) {
+      var key = sectionMap[j].classList.contains('hero') ? 'hero'
+        : sectionMap[j].id || sectionMap[j].className;
+      if (visible[key]) { active = sectionMap[j]; break; }
+    }
+    if (!active) return;
+    var activeHref = active.classList.contains('hero') ? '#top' : '#' + (active.id || '');
+    navLinks.forEach(function(a) {
+      a.classList.toggle('is-active', a.getAttribute('href') === activeHref);
+    });
+  }, { threshold: 0.25 });
+
+  sectionMap.forEach(function(s) { observer.observe(s); });
+})();
+
 const form = document.querySelector('.contact-form');
 if (form) {
   form.addEventListener('submit', (event) => {

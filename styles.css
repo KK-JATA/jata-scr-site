@@ -119,6 +119,7 @@ h1, h2, h3, p { margin-top: 0; }
 .site-nav a { padding: 10px 0; border-bottom: 2px solid transparent; font-weight: 700; color: inherit; }
 .site-nav a:visited { color: inherit; }
 .site-nav a:hover { border-color: var(--jata-green); color: var(--jata-green); }
+.site-nav a.is-active { border-color: #8cc99c; color: var(--jata-green); }
 .nav-toggle { display: none; width: 42px; height: 42px; border: 1px solid var(--line); background: var(--white); border-radius: 6px; cursor: pointer; }
 .nav-toggle span { display: block; width: 18px; height: 2px; margin: 4px auto; background: var(--ink); }
 
