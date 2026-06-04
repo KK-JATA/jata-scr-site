@@ -211,6 +211,10 @@ function acceptCookies(){localStorage.setItem('cookiesAccepted','1');document.ge
 (function(){
   var p = document.getElementById('preloader');
 
+  // Skip curtain on mobile — feels heavy and out of place
+  var isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+  if (isMobile) { p.remove(); return; }
+
   // Curtains slide open after 2s
   setTimeout(function(){
     p.classList.add('is-open');
