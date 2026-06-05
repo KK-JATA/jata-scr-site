@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SCR Catalyst Manufacturer | Data Center & Industrial Emission Control | JATA</title>
-  <meta name="description" content="Tailored SCR DeNOx catalyst solutions for power plants, data centers, marine vessels and industrial emission control. Manufactured by Huadian Environmental, CNAS & Classification Society certified. 18,000 m³/year capacity." />
+  <title>About JATA | SCR Catalyst Manufacturer | Huadian Environmental Partner</title>
+  <meta name="description" content="JATA Environmental is the global trading partner for Huadian Qingdao SCR DeNOx catalysts. 60,000 m² facility, 18,000 m³/year capacity, Cormetech technology heritage." />
   <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
   <link rel="shortcut icon" href="./assets/favicon.svg" />
   <link rel="icon" type="image/png" href="./favicon.png" />
@@ -23,15 +23,9 @@
     "duration": "PT46S"
   }
   </script>
-  <link rel="preload" as="image" href="./assets/slide-1.jpg">
-  <link rel="preload" as="image" href="./assets/slide-2.jpg">
-  <link rel="preload" as="image" href="./assets/slide-3.jpg">
-  <link rel="preload" as="image" href="./assets/slide-4.jpg">
-  <link rel="preload" as="image" href="./assets/slide-5.jpg">
   <link rel="preload" as="image" href="./assets/jata-logo-white.png">
 </head>
 <body>
-  <!-- Preloader: curtain reveal -->
   <div id="preloader">
     <div class="preloader-curtain curtain-left"></div>
     <div class="preloader-curtain curtain-right"></div>
@@ -54,55 +48,22 @@
       <a href="./solutions.html">Solutions</a>
       <a href="./technology.html">Technology</a>
       <a href="./company.html">Company</a>
-            <a href="./contact.html">Contact</a>
+      <a href="./contact.html">Contact</a>
     </nav>
   </header>
 
-  <main id="top">
-    <section class="hero" aria-label="Hero" data-hero>
-      <div class="hero-stage" data-hero-stage>
-        <div class="hero-image" data-hero-image aria-hidden="true"></div>
-        <div class="hero-content">
-          <h1 class="hero-title-main" data-hero-title>SCR CATALYST SOLUTIONS<span class="hero-title-sub">FOR POWER GENERATION AND INDUSTRIAL EMISSIONS</span></h1>
-          <div data-hero-body>
-            <p class="hero-subtitle-cn" data-hero-sub>Backed by Huadian Environmental  Since 1998</p>
-            <p class="hero-partner-line">Manufactured by Huadian Environmental &nbsp;&nbsp;|&nbsp;&nbsp; Represented Globally by JATA Environmental</p>
-            <div class="hero-blocks" aria-label="Key facts">
-              <div class="hero-block hero-block-metric">
-                <strong>60,000 ㎡</strong>
-                <span>Smart Manufacturing Facility</span>
-              </div>
-              <div class="hero-block hero-block-metric">
-                <strong>18,000 m³/year</strong>
-                <span>SCR Catalyst Capacity</span>
-              </div>
-              <div class="hero-block hero-block-metric">
-                <strong>USD 230M</strong>
-                <span>Average Annual Turnover</span>
-              </div>
-              <div class="hero-block">
-                <span class="hero-block-label">Core Business</span>
-                <span class="hero-block-text">Catalyst Manufacturing</span>
-              </div>
-              <div class="hero-block">
-                <span class="hero-block-label">Core Business</span>
-                <span class="hero-block-text">Catalyst Recycling</span>
-              </div>
-              <div class="hero-block">
-                <span class="hero-block-label">Core Business</span>
-                <span class="hero-block-text">Environmental EPC</span>
-              </div>
-            </div>
-            <a class="btn primary hero-cta" href="./contact.html">Discuss Your Project</a>
-          </div>
+  <main>
+    <section class="section" style="margin-top: 60px;">
+      <div class="video-row">
+        <div class="video-caption">
+          <p class="eyebrow">Company &amp; Capability</p>
+          <h1>A reliable partner for SCR catalyst supply, engineering support, and lifecycle services</h1>
+          <h2>Reliable SCR Catalyst Supply &amp; Engineering Support</h2>
+          <p class="video-caption-text">From manufacturing to application, ensuring stable performance and long-term system reliability.</p>
         </div>
-        <!-- Keep these five buttons in the same order as heroSlides in script.js. -->
-        <div class="hero-tabs hero-tabs-overlay" aria-label="Industry applications">
-          <button class="hero-tab is-active" type="button" data-hero-tab="0" aria-pressed="true"><strong>About Us</strong><span>Backed by Huadian Environmental Since 1998</span></button>
-          <button class="hero-tab" type="button" data-hero-tab="1"><strong>Technology Heritage</strong><span>Originated from Proven Technology, Refined Through Innovation</span></button>
-          <button class="hero-tab" type="button" data-hero-tab="2"><strong>Why Choose Us</strong><span>Trusted by Operators Who Value Reliability</span></button>
-          <button class="hero-tab" type="button" data-hero-tab="3"><strong>SCR Solutions for Data Centers</strong><span>Engineered for Reliable Backup Power Emission Control</span></button>
-          <button class="hero-tab" type="button" data-hero-tab="4"><strong>Multi-Industry Deployment</strong><span>Flexible SCR solutions for diverse environments</span></button>
+        <div class="video-hero">
+          <video src="./assets/video.mp4" muted loop playsinline controls preload="metadata" id="companyVideo"></video>
+          <span class="video-play-btn"></span>
         </div>
       </div>
     </section>
@@ -136,21 +97,10 @@ function acceptCookies(){localStorage.setItem('cookiesAccepted','1');document.ge
 <script>
 (function(){
   var p = document.getElementById('preloader');
-
-  // Skip curtain on mobile — feels heavy and out of place
   var isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
   if (isMobile) { p.remove(); return; }
-
-  // Curtains slide open after 2s
-  setTimeout(function(){
-    p.classList.add('is-open');
-  }, 2000);
-
-  // Remove preloader after curtains finish
-  setTimeout(function(){
-    p.classList.add('is-done');
-    setTimeout(function(){ p.remove(); }, 400);
-  }, 3100);
+  setTimeout(function(){ p.classList.add('is-open'); }, 2000);
+  setTimeout(function(){ p.classList.add('is-done'); setTimeout(function(){ p.remove(); }, 400); }, 3100);
 })();
 </script>
 <script src="./config.js"></script>
