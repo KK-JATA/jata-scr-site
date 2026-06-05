@@ -1,8 +1,3 @@
 {
-  "crons": [
-    {
-      "path": "/api/send-report?secret=jata-daily-report-2026",
-      "schedule": "0 8 * * *"
-    }
-  ]
+  "crons": []
 }
