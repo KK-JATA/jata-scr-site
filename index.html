@@ -42,7 +42,7 @@
   </div>
 
   <header class="site-header" data-header>
-    <a class="brand-group" href="./index.html" aria-label="JATA and Huadian Home">
+    <a class="brand-group" href="#top" aria-label="JATA and Huadian Home">
       <img class="brand-logo jata-logo" src="./assets/jata-logo.png" alt="JATA logo" />
       <img class="brand-logo huadian-logo" src="./assets/huadian-logo.png" alt="Huadian Qingdao logo" />
     </a>
@@ -50,11 +50,11 @@
       <span></span><span></span><span></span>
     </button>
     <nav class="site-nav" id="site-nav" data-nav>
-      <a href="./index.html">Home</a>
-      <a href="./solutions.html">Solutions</a>
-      <a href="./technology.html">Technology</a>
-      <a href="./company.html">Company</a>
-            <a href="./contact.html">Contact</a>
+      <a href="#top">Home</a>
+      <a href="#services">Solutions</a>
+      <a href="#impact">Technology</a>
+      <a href="#insights">Company</a>
+            <a href="#contact">Contact</a>
     </nav>
   </header>
 
@@ -93,7 +93,7 @@
                 <span class="hero-block-text">Environmental EPC</span>
               </div>
             </div>
-            <a class="btn primary hero-cta" href="./contact.html">Discuss Your Project</a>
+            <a class="btn primary hero-cta" href="#contact">Discuss Your Project</a>
           </div>
         </div>
         <!-- Keep these five buttons in the same order as heroSlides in script.js. -->
@@ -106,6 +106,94 @@
         </div>
       </div>
     </section>
+
+    <section class="section split" id="services">
+      <div class="section-heading">
+        <p class="eyebrow">Solutions &amp; Services</p>
+        <h2>SCR catalyst solutions built for real flue gas conditions,<br>not generic product categories.</h2>
+      </div>
+      <div class="service-grid">
+        <article class="service-card"><span>01</span><h3>Custom Engineered Solutions</h3><p>Tailored SCR catalyst design based on real flue gas conditions.</p></article>
+        <article class="service-card"><span>02</span><h3>System Engineering Support</h3><p>Guidance for SCR system design, retrofit, and optimization.</p></article>
+        <article class="service-card"><span>03</span><h3>Proven Project Experience</h3><p>Over 1,000 industrial applications, backed by Cormetech-origin technology.</p></article>
+        <article class="service-card"><span>04</span><h3>Lifecycle Service Support</h3><p>Full lifecycle support from deployment to replacement.</p></article>
+      </div>
+    </section>
+
+    <section class="feature-band" id="impact">
+      <div>
+        <p class="eyebrow">Technology &amp; Proof</p>
+        <h2>Built on technology, proven at scale, supported through the full lifecycle.</h2>
+        <p>The company operates a CNAS-accredited testing center, ensuring reliable and standardized catalyst performance evaluation.</p>
+        <p>We provide integrated technical services covering:</p>
+        <ul class="proof-list">
+          <li>SCR catalyst design and engineering support</li>
+          <li>Manufacturing and quality control</li>
+          <li>Performance evaluation under real flue gas conditions</li>
+          <li>Full lifecycle management and spent catalyst recycling</li>
+        </ul>
+      </div>
+      <div class="factory-gallery">
+        <div class="gallery-item"><img loading="lazy" src="./assets/factory-2.jpg" alt="Production facility" /><span>60,000 m² Smart Manufacturing Facility</span></div>
+        <div class="gallery-item"><img loading="lazy" src="./assets/factory-1.jpg" alt="Manufacturing environment" /><span>Automated Production with Robotic Systems</span></div>
+        <div class="gallery-item"><img loading="lazy" src="./assets/factory-5.jpg" alt="SCR catalyst product" /><span>SCR Catalysts Designed for Marine Applications</span></div>
+        <div class="gallery-item"><img loading="lazy" src="./assets/factory-6.jpg" alt="Catalyst manufacturing" /><span>108-Cell SCR Catalyst for Internal Combustion Engines</span></div>
+        <div class="gallery-cert"><img loading="lazy" src="./assets/factory-3.jpg" alt="Cormetech certification" /><span>Cormetech Technology Authorization</span></div>
+        <div class="gallery-cert"><img loading="lazy" src="./assets/factory-4.jpg" alt="Classification society certification" /><span>China's First Classification Society-Certified SCR Catalyst Manufacturer</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="insights">
+      <div class="video-row">
+        <div class="video-caption">
+          <p class="eyebrow">Company &amp; Capability</p>
+          <h2>A reliable partner for SCR catalyst supply, engineering support, and lifecycle services</h2>
+          <h3>Reliable SCR Catalyst Supply &amp; Engineering Support</h3>
+          <p class="video-caption-text">From manufacturing to application, ensuring stable performance and long-term system reliability.</p>
+        </div>
+        <div class="video-hero">
+          <video src="./assets/video.mp4" muted loop playsinline controls preload="metadata" id="companyVideo"></video>
+          <span class="video-play-btn"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2>Tell us about your emission control requirements, and we will recommend the SCR solution.</h2>
+        <p>Our engineering team will analyze your flue gas conditions and recommend a tailored catalyst configuration - typically within 24 hours.</p>
+        <dl style="margin-top:28px;display:grid;gap:14px;color:var(--muted);font-size:14px">
+          <div>
+            <strong style="color:var(--ink)">SCR Catalyst Manufacturing</strong>
+            <p style="margin:4px 0 12px;font-size:13px;color:var(--muted)">HUADIAN QINGDAO ENVIRONMENTAL TECHNOLOGY CO., LTD.<br>No. 11 Siyuan Road, High-tech Industrial Development Zone<br>Qingdao, Shandong, China</p>
+          </div>
+          <div>
+            <strong style="color:var(--ink)">Global Business Representative</strong>
+            <p style="margin:4px 0 0;font-size:13px;color:var(--muted)">Qingdao Jata Environmental Technology Co., Ltd.<br>qingdaojata@gmail.com<br>No. 170 Xuzhou North Road, Shibei District<br>Qingdao, Shandong, China</p>
+          </div>
+        </dl>
+      </div>
+      <form class="contact-form">
+        <label><span>Full Name <span class="req">*</span></span><input type="text" name="name" placeholder="Your name" required /></label>
+        <label><span>Company <span class="req">*</span></span><input type="text" name="company" placeholder="Your Company Ltd." required /></label>
+        <label>Country / Region
+          <select id="continentSelect" style="margin-bottom:8px"><option value="">Select continent</option></select>
+          <select name="country" id="countrySelect"><option value="">Select country</option></select>
+        </label>
+        <label><span>Email <span class="req">*</span></span><input type="email" name="email" placeholder="name@company.com" required /></label>
+        <label>Phone
+          <div style="display:flex;gap:8px">
+            <select name="phoneCode" style="width:120px;flex-shrink:0">
+              <option value="+1">+1 US/CA</option><option value="+44">+44 UK</option><option value="+49">+49 Germany</option><option value="+33">+33 France</option><option value="+39">+39 Italy</option><option value="+34">+34 Spain</option><option value="+31">+31 Netherlands</option><option value="+32">+32 Belgium</option><option value="+41">+41 Switzerland</option><option value="+43">+43 Austria</option><option value="+46">+46 Sweden</option><option value="+47">+47 Norway</option><option value="+45">+45 Denmark</option><option value="+358">+358 Finland</option><option value="+354">+354 Iceland</option><option value="+353">+353 Ireland</option><option value="+351">+351 Portugal</option><option value="+30">+30 Greece</option><option value="+48">+48 Poland</option><option value="+420">+420 Czech</option><option value="+40">+40 Romania</option><option value="+36">+36 Hungary</option><option value="+90">+90 Turkey</option><option value="+7">+7 Russia</option><option value="+380">+380 Ukraine</option><option value="+375">+375 Belarus</option><option value="+86">+86 China</option><option value="+81">+81 Japan</option><option value="+82">+82 Korea</option><option value="+91">+91 India</option><option value="+65">+65 Singapore</option><option value="+60">+60 Malaysia</option><option value="+62">+62 Indonesia</option><option value="+66">+66 Thailand</option><option value="+84">+84 Vietnam</option><option value="+63">+63 Philippines</option><option value="+95">+95 Myanmar</option><option value="+880">+880 Bangladesh</option><option value="+92">+92 Pakistan</option><option value="+971">+971 UAE</option><option value="+966">+966 Saudi</option><option value="+974">+974 Qatar</option><option value="+965">+965 Kuwait</option><option value="+968">+968 Oman</option><option value="+973">+973 Bahrain</option><option value="+98">+98 Iran</option><option value="+972">+972 Israel</option><option value="+55">+55 Brazil</option><option value="+52">+52 Mexico</option><option value="+54">+54 Argentina</option><option value="+56">+56 Chile</option><option value="+57">+57 Colombia</option><option value="+51">+51 Peru</option><option value="+58">+58 Venezuela</option><option value="+61">+61 Australia</option><option value="+64">+64 New Zealand</option><option value="+27">+27 South Africa</option><option value="+234">+234 Nigeria</option><option value="+20">+20 Egypt</option><option value="+254">+254 Kenya</option><option value="+212">+212 Morocco</option><option value="+251">+251 Ethiopia</option>
+            </select>
+            <input type="tel" name="phone" placeholder="Phone number" style="flex:1" />
+          </div>
+        </label>
+        <label>Project Details<textarea name="message" rows="4" placeholder="Fuel type, boiler specs, target NOx level, flue gas conditions, catalyst quantity, timeline..." required></textarea></label>
+        <button class="btn primary" type="submit">Submit Inquiry</button>
+      </form>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -116,11 +204,11 @@
       <p>Qingdao Jata Environmental Technology Co., Ltd<br>Manufacturing by Huadian Qingdao Environmental Technology Co., Ltd<br>A subsidiary of China Huadian Corporation Ltd.</p>
     </div>
     <div class="footer-links">
-      <a href="./index.html">Home</a>
-      <a href="./solutions.html">Solutions</a>
-      <a href="./technology.html">Technology</a>
-      <a href="./company.html">Company</a>
-      <a href="./contact.html">Contact</a>
+      <a href="#top">Home</a>
+      <a href="#services">Solutions</a>
+      <a href="#impact">Technology</a>
+      <a href="#insights">Company</a>
+      <a href="#contact">Contact</a>
       <a href="./privacy.html">Privacy</a>
     </div>
   </footer>
