@@ -538,6 +538,36 @@ function renderProductApp(index) {
   if (!stage) return;
   const data = productAppData[index] || productAppData[0];
 
+  // Restore default 4-box grid if it was replaced
+  if (!stage.querySelector('.product-app-grid')) {
+    stage.innerHTML =
+      '<div class="product-app-grid">' +
+        '<figure class="product-app-card product-app-image">' +
+          '<img loading="lazy" src="" alt="" data-product-image />' +
+        '</figure>' +
+        '<div class="product-app-card product-app-tags">' +
+          '<h3>Applications</h3>' +
+          '<div class="tag-cloud" data-product-industries></div>' +
+        '</div>' +
+        '<div class="product-app-card product-app-features">' +
+          '<h3>Features</h3>' +
+          '<div class="tag-cloud tag-cloud--inline" data-product-features></div>' +
+        '</div>' +
+        '<div class="product-app-card product-app-params">' +
+          '<div class="card-head">' +
+            '<h3>Product Parameters</h3>' +
+            '<button class="card-zoom-btn" type="button" data-product-zoom aria-label="Open product parameters in larger view">' +
+              '<img class="card-zoom-icon" src="./assets/search-zoom.svg" alt="" aria-hidden="true" />' +
+            '</button>' +
+          '</div>' +
+          '<div class="param-table-wrap">' +
+            '<table class="param-table" data-product-params><thead><tr><th>Product</th><th>Cell Size</th><th>Pitch mm</th><th>Wall Thickness mm</th><th>Open Area %</th><th>Specific Surface Area m²/m³</th></tr></thead><tbody></tbody></table>' +
+          '</div>' +
+          '<div class="param-notes" data-product-notes hidden></div>' +
+        '</div>' +
+      '</div>';
+  }
+
   if (data.name === 'SCR Catalyst for Data Center Power Emissions') {
     stage.innerHTML =
       '<div class="dc-showcase">' +
