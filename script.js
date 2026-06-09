@@ -516,6 +516,20 @@ const productAppData = [
     params: [
       ['HDD-108TN', '108×108', '1.4', '0.22', '71', '2428']
     ]
+  },
+  {
+    name: 'SCR Catalyst for Data Center Power Emissions',
+    image: './assets/slide-4.jpg',
+    industries: ['Data Centers', 'Backup Generators', 'Emergency Power'],
+    features: ['Mission-Critical', 'Low NOx', 'Compact', 'Low Pressure Drop', 'Fast Response', 'Custom Engineering'],
+    params: []
+  },
+  {
+    name: 'SCR Catalyst for Marine Internal Combustion Engines',
+    image: './assets/product-108/product-108.png',
+    industries: ['Marine Vessels', 'Ship Engines', 'IMO Tier III'],
+    features: ['Classification Society Certified', 'Marine-Grade Durability', 'Compact Marine Fit'],
+    params: []
   }
 ];
 
@@ -523,6 +537,33 @@ function renderProductApp(index) {
   const stage = document.querySelector('[data-product-stage]');
   if (!stage) return;
   const data = productAppData[index] || productAppData[0];
+
+  if (data.name === 'SCR Catalyst for Data Center Power Emissions') {
+    stage.innerHTML =
+      '<div class="dc-showcase">' +
+        '<figure class="dc-showcase-hero">' +
+          '<img loading="lazy" src="' + data.image + '?v=20260609" alt="Data center backup power generator hall" />' +
+        '</figure>' +
+        '<div class="dc-showcase-body">' +
+          '<p class="dc-showcase-eyebrow">SCR Solutions</p>' +
+          '<h2 class="dc-showcase-headline">Data Center SCR Solutions</h2>' +
+          '<p class="dc-showcase-sub">Engineered for Backup Diesel and Gas Generator Applications</p>' +
+          '<p class="dc-showcase-desc">Designed to support NOx compliance requirements while maintaining reliable operation under standby, emergency and peak-demand conditions.</p>' +
+          '<div class="dc-feature-grid">' +
+            '<div class="dc-feature-card"><strong>Mission-Critical Reliability</strong><span>Reliable performance during emergency operation</span></div>' +
+            '<div class="dc-feature-card"><strong>Low NOx Emissions</strong><span>Supports stringent environmental requirements</span></div>' +
+            '<div class="dc-feature-card"><strong>Compact Design</strong><span>Optimized for limited installation footprints</span></div>' +
+            '<div class="dc-feature-card"><strong>Low Pressure Drop</strong><span>Designed for generator efficiency</span></div>' +
+            '<div class="dc-feature-card"><strong>Fast Response</strong><span>Suitable for intermittent operating profiles</span></div>' +
+            '<div class="dc-feature-card"><strong>Custom Engineering</strong><span>Tailored catalyst configurations for project requirements</span></div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    document.querySelectorAll('.product-app-item').forEach((btn, btnIndex) => {
+      btn.classList.toggle('is-active', btnIndex === index);
+    });
+    return;
+  }
   const image = stage.querySelector('[data-product-image]');
   const industries = stage.querySelector('[data-product-industries]');
   const features = stage.querySelector('[data-product-features]');
