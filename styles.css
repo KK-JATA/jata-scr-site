@@ -2028,7 +2028,7 @@ input::placeholder, textarea::placeholder { color: #c0c8d0; }
   grid-template-columns: auto 1fr;
   align-items: center;
   gap: 12px;
-  padding: 14px 4px;
+  padding: 14px 4px 14px 16px;
   border: 0;
   border-bottom: 1px solid rgba(16,50,77,0.08);
   border-radius: 0;
@@ -2047,9 +2047,9 @@ input::placeholder, textarea::placeholder { color: #c0c8d0; }
   display: none;
 }
 .product-app-item strong {
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.3;
-  font-weight: 500;
+  font-weight: 700;
   color: inherit;
 }
 .product-app-item:hover {
@@ -2161,26 +2161,32 @@ input::placeholder, textarea::placeholder { color: #c0c8d0; }
 .tag-cloud {
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 10px;
   flex: 1 1 auto;
   align-content: flex-start;
   overflow: hidden;
   max-height: 100%;
 }
 .tag-cloud--inline {
-  gap: 8px;
+  gap: 10px;
 }
 .tag-cloud .tag {
   display: inline-flex;
   align-items: center;
-  min-height: 24px;
-  padding: 4px 8px;
+  min-height: 30px;
+  padding: 6px 14px;
   border-radius: 999px;
   background: rgba(44,139,79,0.08);
   color: #10324d;
-  font-size: 12px;
-  line-height: 1;
-  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+  transition: transform 150ms ease, background 150ms ease;
+  cursor: default;
+}
+.tag-cloud .tag:hover {
+  transform: scale(1.08);
+  background: rgba(44,139,79,0.16);
 }
 .param-table-wrap {
   overflow: auto;
@@ -2194,23 +2200,25 @@ input::placeholder, textarea::placeholder { color: #c0c8d0; }
   min-height: 0;
 }
 .param-note-box {
-  padding: 11px 13px;
+  padding: 12px 14px;
   border-radius: 8px;
-  background: rgba(255,255,255,0.075);
-  border: 1px solid rgba(255,255,255,0.11);
-  color: rgba(255,255,255,0.92);
+  background: #f6f9fc;
+  border: 1px solid rgba(16,50,77,0.08);
+  border-left: 3px solid #2c8b4f;
+  color: #10324d;
 }
 .param-note-box strong {
   display: block;
   margin-bottom: 6px;
-  font-size: 12px;
-  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  color: #10324d;
 }
 .param-note-box p {
   margin: 0;
-  font-size: 10px;
-  line-height: 1.5;
-  color: rgba(255,255,255,0.82);
+  font-size: 13px;
+  line-height: 1.55;
+  color: #51606b;
 }
 .param-table {
   width: 100%;

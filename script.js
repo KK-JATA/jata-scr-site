@@ -504,8 +504,8 @@ const productAppData = [
       'Extended Service Life'
     ],
     params: [
-      ['Flat plate unit', 'Smallest building block of plate catalysts.'],
-      ['Corrugated plate type', 'Alternating flat and corrugated plates, wrapped by a steel shell.']
+      ['Flat Plate Design', 'A single flat plate is the smallest unit. Dozens of plates form a catalyst module with a cross-section of 464mm x 464mm and height typically 500-850mm.'],
+      ['Corrugated Plate Design', 'Flat and corrugated plates are stacked alternately, wrapped by a steel shell. Module cross-section is 466mm x 466mm and height typically 300-600mm.']
     ]
   },
   {
@@ -552,15 +552,18 @@ function renderProductApp(index) {
     tbody.innerHTML = data.params.map((row) => '<tr>' + row.map((cell) => '<td>' + cell + '</td>').join('') + '</tr>').join('');
   }
 
+  const zoomBtn = stage.querySelector('[data-product-zoom]');
   if (tableWrap && notes) {
     if (data.name === 'Plate-Type SCR Catalyst') {
       tableWrap.hidden = true;
       notes.hidden = false;
       notes.innerHTML = data.params.map((row) => '<div class="param-note-box"><strong>' + row[0] + '</strong><p>' + row[1] + '</p></div>').join('');
+      if (zoomBtn) zoomBtn.style.display = 'none';
     } else {
       tableWrap.hidden = false;
       notes.hidden = true;
       notes.innerHTML = '';
+      if (zoomBtn) zoomBtn.style.display = '';
     }
   }
 
