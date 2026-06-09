@@ -1929,7 +1929,7 @@ input::placeholder, textarea::placeholder { color: #c0c8d0; }
   background: linear-gradient(135deg, #10324d 0%, #0d4e7f 55%, #0b5f95 100%) !important;
 }
 .qa-section.qa-section--alt {
-  background: #eef3f6 !important;
+  background: linear-gradient(135deg, #10324d 0%, #0d4e7f 55%, #0b5f95 100%) !important;
 }
 .qa-section.qa-section--alt .qa-copy,
 .qa-section.qa-section--alt .qa-visual {
