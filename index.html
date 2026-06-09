@@ -29,6 +29,7 @@
   <link rel="preload" as="image" href="./assets/slide-4.jpg">
   <link rel="preload" as="image" href="./assets/slide-5.jpg">
   <link rel="preload" as="image" href="./assets/jata-logo-white.png">
+  <link rel="stylesheet" href="../gin-vue-admin-main/web/src/style/iconfont.css">
 </head>
 <body>
   <!-- Preloader: curtain reveal -->
@@ -52,7 +53,10 @@
     <nav class="site-nav" id="site-nav" data-nav>
       <a href="#top">Home</a>
       <a href="#services">Solutions</a>
-      <a href="#impact">Technology</a>
+      <a class="qa-nav" href="#impact" aria-label="Quality Assurance">
+        <span class="qa-short">QA</span>
+        <span class="qa-full" aria-hidden="true">Quality Assurance</span>
+      </a>
       <a href="#applications">Applications</a>
       <a href="#lineage">Lineage</a>
       <a href="#insights">Company</a>
@@ -109,7 +113,7 @@
       </div>
     </section>
 
-    <section class="section services-section" id="services">
+    <section class="section module-shell module-shell--light services-section" id="services">
       <div class="section-heading services-heading">
         <p class="eyebrow">Solutions &amp; Services</p>
         <h2>Tailored SCR Catalyst Solutions for Different Industrial Scenarios</h2>
@@ -174,7 +178,7 @@
       </div>
     </section>
 
-    <section class="section tech-section" id="impact">
+    <section class="section module-shell module-shell--dark tech-section" id="technology">
       <div class="tech-copy">
         <div class="section-heading">
           <p class="eyebrow">Technology &amp; Proof</p>
@@ -206,82 +210,163 @@
             </article>
           </div>
         </div>
-      </div>
-      <div class="tech-visuals">
-        <figure class="tech-visual tech-visual-auth">
-          <img loading="lazy" src="./assets/factory-3.jpg" alt="Cormetech technology authorization" />
-          <figcaption>Cormetech Technology Authorization</figcaption>
-        </figure>
-        <figure class="tech-visual tech-visual-cell">
-          <img loading="lazy" src="./参考图片/产品优势/108.png" alt="108-cell SCR catalyst product detail" />
-          <figcaption>108-Cell SCR Catalyst for Internal Combustion Engines</figcaption>
-        </figure>
-        <figure class="tech-visual tech-visual-chart">
-          <img loading="lazy" src="./assets/tech-cems.png" alt="CEMS curve showing inlet and outlet NOx concentration" />
-          <figcaption>CEMS Curve</figcaption>
-        </figure>
-        <figure class="tech-visual tech-visual-sem">
-          <img loading="lazy" src="./assets/tech-sem.png" alt="Catalyst microstructure under scanning electron microscope" />
-          <figcaption>Microstructure Under SEM</figcaption>
-        </figure>
-      </div>
-      </div>
-    </section>
-    <section class="section split-media" id="huadian">
-      <div class="split-media-copy">
-        <div class="section-heading">
-          <p class="eyebrow">Huadian &amp; Huadian Environmental</p>
-          <h2>A national energy background, a serious manufacturing base, and a trusted industrial identity.</h2>
-        </div>
-        <div class="lineage-points">
-          <div><strong>Huadian heritage</strong><span>Backed by a large national energy system, which buyers often read as operational stability and project discipline</span></div>
-          <div><strong>Huadian Environmental</strong><span>The manufacturing and environmental technology base behind the catalyst business</span></div>
-          <div><strong>JATA representation</strong><span>Global-facing business identity that helps overseas buyers understand who to talk to</span></div>
-          <div><strong>Clear role split</strong><span>One side is manufacturing and technical capability, the other is international commercial representation</span></div>
+        <div class="tech-visuals">
+          <figure class="tech-visual tech-visual-auth">
+            <img loading="lazy" src="./assets/factory-3.jpg" alt="Cormetech technology authorization" />
+            <figcaption>Cormetech Technology Authorization</figcaption>
+          </figure>
+          <figure class="tech-visual tech-visual-cell">
+            <img loading="lazy" src="./参考图片/产品优势/108.png" alt="108-cell SCR catalyst product detail" />
+            <figcaption>108-Cell SCR Catalyst for Internal Combustion Engines</figcaption>
+          </figure>
+          <figure class="tech-visual tech-visual-chart">
+            <img loading="lazy" src="./assets/tech-cems.png" alt="CEMS curve showing inlet and outlet NOx concentration" />
+            <figcaption>CEMS Curve</figcaption>
+          </figure>
+          <figure class="tech-visual tech-visual-sem">
+            <img loading="lazy" src="./assets/tech-sem.png" alt="Catalyst microstructure under scanning electron microscope" />
+            <figcaption>Microstructure Under SEM</figcaption>
+          </figure>
         </div>
       </div>
-      <figure class="split-media-visual">
-        <img loading="lazy" src="./assets/factory-1.jpg" alt="Industrial manufacturing and engineering environment" />
-      </figure>
     </section>
 
-    <section class="section audience-band split-media" id="applications">
-      <div class="split-media-copy">
-        <div class="section-heading row">
-          <div>
-            <p class="eyebrow">Application Focus</p>
-            <h2>We work where the project is real, the flue gas is known, and the catalyst has to perform.</h2>
+    <section class="section module-shell module-shell--light qa-section qa-section--alt" id="impact">
+      <div class="qa-copy">
+        <div class="section-heading">
+          <p class="eyebrow">Quality Assurance</p>
+          <h2>Quality Assurance System</h2>
+        </div>
+        <p class="qa-lead">Established in April 2014, our testing center builds on Cormetech's advanced testing methodology and was accredited by CNAS in August 2015.</p>
+        <p class="qa-body">Equipped with more than 20 internationally recognized testing and laboratory instruments, the center covers the full chain of catalyst inspection, material analysis, and performance verification.</p>
+        <div class="qa-summary">Scope includes appearance, geometry, mechanical performance, process performance, composition analysis, surface characteristics, water quality, and raw-material testing.</div>
+        <div class="qa-lines" aria-label="Testing scope list">
+          <div class="qa-line">
+            <div class="qa-line-title"><span>01</span>Appearance Inspection</div>
+            <div class="qa-line-body">Structural integrity and surface condition checks.</div>
+          </div>
+          <div class="qa-line">
+            <div class="qa-line-title"><span>02</span>Geometric Characteristics</div>
+            <div class="qa-line-body">Length, dimensions, wall thickness, pore size, pitch, wave height and depth, curvature, geometric surface area, and open area ratio.</div>
+          </div>
+          <div class="qa-line">
+            <div class="qa-line-title"><span>03</span>Mechanical Properties</div>
+            <div class="qa-line-body">Axial compressive strength, radial compressive strength, adhesive strength, and abrasion resistance.</div>
+          </div>
+          <div class="qa-line">
+            <div class="qa-line-title"><span>04</span>Process Performance</div>
+            <div class="qa-line-body">DeNOx efficiency, NH3 slip, SO2/SO3 conversion, and activity factor.</div>
+          </div>
+          <div class="qa-line">
+            <div class="qa-line-title"><span>05</span>Chemical Composition</div>
+            <div class="qa-line-body">Main components including TiO2, V2O5, WO3, MoO3, Al2O3, SiO2, CaO, P2O5, and SO3.</div>
+          </div>
+          <div class="qa-line">
+            <div class="qa-line-title"><span>06</span>Trace Elements</div>
+            <div class="qa-line-body">K, Na, Ca, P, As, and Pb analysis.</div>
+          </div>
+          <div class="qa-line">
+            <div class="qa-line-title"><span>07</span>Surface Characteristics</div>
+            <div class="qa-line-body">Specific surface area, microstructure, solid-state structure, active-site distribution, surface acidity, and surface deposits.</div>
+          </div>
+          <div class="qa-line">
+            <div class="qa-line-title"><span>08</span>Water Quality</div>
+            <div class="qa-line-body">Hardness, alkalinity, chloride, turbidity, conductivity, pH, dissolved oxygen, total iron, total dissolved solids, and related indicators.</div>
+          </div>
+          <div class="qa-line">
+            <div class="qa-line-title"><span>09</span>Basic Physical-Chemical Analysis</div>
+            <div class="qa-line-body">Ammonia solution concentration, lactic acid content, ammonium metavanadate, ammonium sulfate, ammonium molybdate, PEO, CMC, titanium dioxide, glass fiber, and RP-CHOP testing.</div>
           </div>
         </div>
-        <div class="application-grid">
-          <article class="application-card application-featured">
-            <span class="application-label">Highest interest</span>
-            <h3>Data center generator projects</h3>
-            <p>Backup power systems for data centers are a strong opportunity because reliability matters, emissions are under pressure, and the decision chain often spans EPCs, environmental partners, and generator system integrators.</p>
-            <ul>
-              <li>Backup diesel and gas generator SCR configurations</li>
-              <li>Intermittent duty-cycle performance requirements</li>
-              <li>Global projects led by integrators, not only end users</li>
-            </ul>
-          </article>
-          <article class="application-card">
-            <span class="application-label">Core base</span>
-            <h3>Power generation and utility retrofits</h3>
-            <p>Power plants remain the largest installed base. We position the site around performance, lifecycle value, and retrofit support rather than simple price comparison.</p>
-          </article>
-          <article class="application-card">
-            <span class="application-label">Certification advantage</span>
-            <h3>Marine and large vessel applications</h3>
-            <p>Marine projects are smaller in volume but broader in customer spread. The classification society certification is a practical trust signal here.</p>
-          </article>
-        </div>
       </div>
-      <figure class="split-media-visual split-media-visual-tall">
-        <img loading="lazy" src="./assets/slide-4.jpg" alt="Data center generator emission control application" />
+      <figure class="qa-visual">
+        <img loading="lazy" src="./参考图片/产品优势/图片4.png" alt="Quality assurance and testing center" />
       </figure>
     </section>
 
-    <section class="lineage-band split-media" id="lineage">
+    <section class="section module-shell module-shell--dark product-app-section" id="applications">
+      <div class="section-heading">
+        <p class="eyebrow">Product and Application</p>
+        <h2>SCR catalyst product design for different industries and operating scenarios.</h2>
+      </div>
+      <div class="product-app-layout">
+        <aside class="product-app-nav" aria-label="SCR catalyst products">
+          <button class="product-app-item is-active" type="button" data-product-index="0">
+            <span>01</span>
+            <strong>Conventional SCR Catalyst</strong>
+          </button>
+          <button class="product-app-item" type="button" data-product-index="1">
+            <span>02</span>
+            <strong>Low-Temperature SCR Catalyst</strong>
+          </button>
+          <button class="product-app-item" type="button" data-product-index="2">
+            <span>03</span>
+            <strong>Wide-Pore SCR Catalyst</strong>
+          </button>
+          <button class="product-app-item" type="button" data-product-index="3">
+            <span>04</span>
+            <strong>Dust-Tolerant SCR Catalyst for Harsh Conditions</strong>
+          </button>
+          <button class="product-app-item" type="button" data-product-index="4">
+            <span>05</span>
+            <strong>Plate-Type SCR Catalyst</strong>
+          </button>
+          <button class="product-app-item" type="button" data-product-index="5">
+            <span>06</span>
+            <strong>108-Cell SCR Catalyst for Internal Combustion Engines</strong>
+          </button>
+          <button class="product-app-item" type="button" data-product-index="6">
+            <span>07</span>
+            <strong>SCR Catalyst for Data Center Power Emissions</strong>
+          </button>
+          <button class="product-app-item" type="button" data-product-index="7">
+            <span>08</span>
+            <strong>SCR Catalyst for Marine Internal Combustion Engines</strong>
+          </button>
+        </aside>
+        <div class="product-app-stage" data-product-stage>
+          <div class="product-app-grid">
+            <figure class="product-app-card product-app-image">
+              <img loading="lazy" src="./参考图片/产品优势/产品/常规催化剂2.png" alt="Conventional SCR catalyst" data-product-image />
+            </figure>
+            <div class="product-app-card product-app-tags">
+              <h3>Applications</h3>
+              <div class="tag-cloud" data-product-industries></div>
+            </div>
+            <div class="product-app-card product-app-features">
+              <h3>Features</h3>
+              <div class="tag-cloud tag-cloud--inline" data-product-features></div>
+            </div>
+            <div class="product-app-card product-app-params">
+              <div class="card-head">
+                <h3>Product Parameters</h3>
+                <button class="card-zoom-btn" type="button" data-product-zoom aria-label="Open product parameters in larger view">
+                  <img class="card-zoom-icon" src="./assets/search-zoom.svg" alt="" aria-hidden="true" />
+                </button>
+              </div>
+              <div class="param-table-wrap" data-product-tablewrap>
+                <table class="param-table" data-product-params>
+                  <thead>
+                    <tr>
+                      <th>Product</th>
+                      <th>Cell Size</th>
+                      <th>Pitch mm</th>
+                      <th>Wall Thickness mm</th>
+                      <th>Open Area %</th>
+                      <th>Specific Surface Area m²/m³</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+              <div class="param-notes" data-product-notes hidden></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section module-shell module-shell--light lineage-band split-media" id="lineage">
       <div class="split-media-copy">
         <div class="section-heading">
           <p class="eyebrow">Technical Lineage</p>
@@ -300,7 +385,7 @@
       </figure>
     </section>
 
-    <section class="section" id="insights">
+    <section class="section module-shell module-shell--dark insights-band" id="insights">
       <div class="video-row">
         <div class="video-caption">
           <p class="eyebrow">Company &amp; Capability</p>
@@ -315,7 +400,7 @@
       </div>
     </section>
 
-    <section class="contact-section" id="contact">
+    <section class="section module-shell module-shell--light contact-section" id="contact">
       <div>
         <p class="eyebrow">Contact</p>
         <h2>Tell us about your emission control requirements, and we will recommend the SCR solution.</h2>

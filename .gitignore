@@ -20,3 +20,16 @@ ffmpeg*.zip
 tools/
 node_modules/
 package-lock.json
+backup_*/
+*.zip
+impeccable-main/
+caveman-main/
+assets/product-108-v2.png
+assets/wide-temp-v2.png
+assets/slide-test.png
+assets/adv/
+assets/product-adv/
+assets/tech-cems.png
+assets/tech-sem.png
+assets/product-108/
+PRODUCT.md

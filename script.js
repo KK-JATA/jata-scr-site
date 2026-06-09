@@ -1,4 +1,4 @@
-const header = document.querySelector('[data-header]');
+﻿const header = document.querySelector('[data-header]');
 const nav = document.querySelector('[data-nav]');
 const toggle = document.querySelector('[data-nav-toggle]');
 
@@ -182,7 +182,7 @@ const heroSlides = [
     body: `<p class="hero-subtitle-cn">Backed by Huadian Environmental  Since 1998</p>
            <p class="hero-partner-line">Manufactured by Huadian Environmental &nbsp;&nbsp;|&nbsp;&nbsp; Represented Globally by JATA Environmental</p>
            <div class="hero-blocks">
-             <div class="hero-block hero-block-metric"><strong>60,000 m²</strong><span>Smart Manufacturing Facility</span></div>
+             <div class="hero-block hero-block-metric"><strong>60,000 ㎡</strong><span>Smart Manufacturing Facility</span></div>
              <div class="hero-block hero-block-metric"><strong>18,000 m³/year</strong><span>SCR Catalyst Capacity</span></div>
              <div class="hero-block hero-block-metric"><strong>USD 230M</strong><span>Average Annual Turnover</span></div>
              <div class="hero-block"><span class="hero-block-label">Core Business</span><span class="hero-block-text">Catalyst Manufacturing</span></div>
@@ -314,31 +314,16 @@ heroImage.addEventListener('error', () => {
   heroImage.style.backgroundImage = "url('./assets/slide-1.jpg')";
 });
 
-function scheduleNextSlide() {
-  window.clearTimeout(heroTimer);
-  heroTimer = window.setTimeout(() => {
-    setHeroSlide((activeHeroIndex + 1) % heroSlides.length);
-    scheduleNextSlide();
-  }, 9000);
-}
-
-function restartAutoRotate() {
-  scheduleNextSlide();
-}
-
 heroTabs.forEach((tabButton) => {
   tabButton.setAttribute('aria-pressed', String(tabButton.classList.contains('is-active')));
   tabButton.addEventListener('click', () => {
     setHeroSlide(Number(tabButton.dataset.heroTab));
-    restartAutoRotate();
   });
 });
 
 if (heroStage) {
   heroStage.addEventListener('mouseenter', () => window.clearTimeout(heroTimer));
-  heroStage.addEventListener('mouseleave', restartAutoRotate);
   heroStage.addEventListener('focusin', () => window.clearTimeout(heroTimer));
-  heroStage.addEventListener('focusout', restartAutoRotate);
 }
 
 setHeroSlide(0);
@@ -388,7 +373,7 @@ if (companyVideo) {
   });
 })();
 
-// Gallery lightbox — factory images + cert row
+// Gallery lightbox – factory images + cert row
 const galleryImages = document.querySelectorAll('.factory-gallery img, .cert-row img');
 galleryImages.forEach(img => {
   img.style.cursor = 'pointer';
@@ -402,3 +387,332 @@ galleryImages.forEach(img => {
     document.body.appendChild(overlay);
   });
 });
+
+const serviceGalleryImages = document.querySelectorAll('.service-card-media img');
+serviceGalleryImages.forEach((img) => {
+  img.setAttribute('role', 'button');
+  img.setAttribute('tabindex', '0');
+  const openServiceImage = () => {
+    const overlay = document.createElement('div');
+    overlay.style.cssText = 'position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.88);display:flex;align-items:center;justify-content:center;padding:24px;cursor:pointer;';
+    const clone = img.cloneNode(true);
+    clone.style.cssText = 'max-width:min(92vw, 1280px);max-height:92vh;object-fit:contain;border-radius:4px;box-shadow:0 24px 80px rgba(0,0,0,0.45);';
+    overlay.appendChild(clone);
+    overlay.addEventListener('click', () => overlay.remove());
+    overlay.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') overlay.remove();
+    });
+    document.body.appendChild(overlay);
+    overlay.focus();
+  };
+  img.addEventListener('click', openServiceImage);
+  img.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      openServiceImage();
+    }
+  });
+});
+
+const techProofImages = document.querySelectorAll('.tech-visual img');
+techProofImages.forEach((img) => {
+  const openTechProof = () => {
+    const overlay = document.createElement('div');
+    overlay.style.cssText = 'position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.88);display:flex;align-items:center;justify-content:center;padding:24px;cursor:pointer;';
+    const clone = img.cloneNode(true);
+    clone.style.cssText = 'max-width:min(92vw, 1320px);max-height:92vh;object-fit:contain;border-radius:6px;box-shadow:0 24px 80px rgba(0,0,0,0.45);';
+    overlay.appendChild(clone);
+    overlay.addEventListener('click', () => overlay.remove());
+    document.body.appendChild(overlay);
+  };
+  img.addEventListener('click', openTechProof);
+});
+
+const productAppData = [
+  {
+    name: 'Conventional SCR Catalyst',
+    image: './assets/product-108/product-1.png',
+    industries: ['Power Plants', 'Boilers', 'Industrial Furnaces'],
+    features: ['Stable performance', 'Mature formulation', 'Balanced cost-performance'],
+    params: [
+      ['HDD-30TN', '30×30', '4.95', '0.5', '80.7', '719'],
+      ['HDD-35TN', '35×35', '4.25', '0.4', '81.3', '841'],
+      ['HDD-40TN', '40×40', '3.7', '0.37', '81.2', '961'],
+      ['HDD-45TN', '45×45', '3.3', '0.33', '81.2', '1082'],
+      ['HDD-50TS', '50×50', '3.0', '0.4', '75.3', '1157'],
+      ['HDD-55TN', '55×55', '2.8', '0.28', '79', '1335'],
+      ['HDD-70TN', '70×70', '2.1', '0.22', '84', '1709'],
+      ['HDD-108TN', '108×108', '1.4', '0.22', '71', '2428']
+    ]
+  },
+  {
+    name: 'Low-Temperature SCR Catalyst',
+    image: './assets/product-108/product-2.png',
+    industries: ['Low-Temp Applications', 'Coking Gas', 'Tail Gas Treatment'],
+    features: ['Low-temperature activity', 'Fast light-off', 'Wide operating window'],
+    params: [
+      ['LT-30', '30×30', '4.90', '0.50', '79.5', '705'],
+      ['LT-35', '35×35', '4.20', '0.40', '80.8', '832'],
+      ['LT-40', '40×40', '3.70', '0.37', '80.4', '948'],
+      ['LT-45', '45×45', '3.25', '0.33', '80.0', '1068']
+    ]
+  },
+  {
+    name: 'Wide-Pore SCR Catalyst',
+    image: './assets/product-108/product-3.jpg',
+    industries: ['High-Dust Flue Gas', 'Biomass', 'Solid Fuel Units'],
+    features: ['Wider pore channel', 'Dust resistance', 'Reduced plugging risk'],
+    params: [
+      ['WP-35', '35×35', '4.30', '0.40', '81.0', '810'],
+      ['WP-40', '40×40', '3.80', '0.38', '80.6', '920'],
+      ['WP-45', '45×45', '3.40', '0.34', '80.1', '1040']
+    ]
+  },
+  {
+    name: 'Dust-Tolerant SCR Catalyst for Harsh Conditions',
+    image: './assets/product-108/product-4.jpg',
+    industries: ['High Dust Load', 'Harsh Industrial Sites', 'Retrofit Projects'],
+    features: ['High dust tolerance', 'Stable pressure drop', 'Long service life'],
+    params: [
+      ['HD-40', '40×40', '3.75', '0.38', '80.3', '940'],
+      ['HD-45', '45×45', '3.30', '0.34', '80.0', '1055'],
+      ['HD-50', '50×50', '3.00', '0.30', '79.4', '1140']
+    ]
+  },
+  {
+    name: 'Plate-Type SCR Catalyst',
+    image: './assets/product-108/product-5.png',
+    industries: [
+      'Waste-to-Energy (WTE)',
+      'Biomass Power Plants',
+      'Coal-Fired Power Plants',
+      'Cement Plants',
+      'Steel & Sintering Plants',
+      'Iron Ore Pelletizing Plants',
+      'Glass Manufacturing',
+      'Petrochemical Plants',
+      'Refineries',
+      'Chemical Processing Plants',
+      'Non-Ferrous Metal Smelters',
+      'Industrial Boilers',
+      'Municipal Solid Waste Incinerators'
+    ],
+    features: [
+      'High Dust Tolerance',
+      'Low Pressure Drop',
+      'High Mechanical Strength',
+      'Extended Service Life'
+    ],
+    params: [
+      ['Flat plate unit', 'Smallest building block of plate catalysts.'],
+      ['Corrugated plate type', 'Alternating flat and corrugated plates, wrapped by a steel shell.']
+    ]
+  },
+  {
+    name: '108-Cell SCR Catalyst for Internal Combustion Engines',
+    image: './assets/product-108/product-108.png',
+    industries: ['Internal Combustion Engines', 'Natural Gas Generator Sets'],
+    features: ['108-cell geometry', 'High-efficiency SCR design', 'Engine-focused solution'],
+    params: [
+      ['HDD-108TN', '108×108', '1.4', '0.22', '71', '2428']
+    ]
+  }
+];
+
+function renderProductApp(index) {
+  const stage = document.querySelector('[data-product-stage]');
+  if (!stage) return;
+  const data = productAppData[index] || productAppData[0];
+  const image = stage.querySelector('[data-product-image]');
+  const industries = stage.querySelector('[data-product-industries]');
+  const features = stage.querySelector('[data-product-features]');
+  const tbody = stage.querySelector('[data-product-params] tbody');
+  const tableWrap = stage.querySelector('.param-table-wrap');
+  const notes = stage.querySelector('[data-product-notes]');
+  stage.setAttribute('data-active-product', String(index));
+
+  if (image) {
+    image.src = data.image + '?v=20260609';
+    image.alt = data.name;
+    image.onerror = () => {
+      image.removeAttribute('src');
+      image.alt = data.name + ' image unavailable';
+    };
+  }
+
+  if (industries) {
+    industries.innerHTML = data.industries.map((item) => '<span class="tag">' + item + '</span>').join('');
+  }
+
+  if (features) {
+    features.innerHTML = data.features.map((item) => '<span class="tag">' + item + '</span>').join('');
+  }
+
+  if (tbody) {
+    tbody.innerHTML = data.params.map((row) => '<tr>' + row.map((cell) => '<td>' + cell + '</td>').join('') + '</tr>').join('');
+  }
+
+  if (tableWrap && notes) {
+    if (data.name === 'Plate-Type SCR Catalyst') {
+      tableWrap.hidden = true;
+      notes.hidden = false;
+      notes.innerHTML = data.params.map((row) => '<div class="param-note-box"><strong>' + row[0] + '</strong><p>' + row[1] + '</p></div>').join('');
+    } else {
+      tableWrap.hidden = false;
+      notes.hidden = true;
+      notes.innerHTML = '';
+    }
+  }
+
+  document.querySelectorAll('.product-app-item').forEach((btn, btnIndex) => {
+    btn.classList.toggle('is-active', btnIndex === index);
+  });
+}
+
+document.querySelectorAll('.product-app-item').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    renderProductApp(Number(btn.getAttribute('data-product-index')));
+  });
+});
+
+function openProductOverlay(type) {
+  const stage = document.querySelector('[data-product-stage]');
+  if (!stage) return;
+  const activeIndex = Number(stage.getAttribute('data-active-product') || '0');
+  const data = productAppData[activeIndex] || productAppData[0];
+
+  const overlay = document.createElement('div');
+  overlay.style.cssText = 'position:fixed;inset:0;z-index:9999;background:rgba(7,19,32,0.92);display:flex;align-items:center;justify-content:center;padding:24px;cursor:pointer;';
+
+  const panel = document.createElement('div');
+  panel.style.cssText = 'width:min(92vw, 1280px);max-height:92vh;background:rgba(15,23,34,0.95);border:1px solid rgba(255,255,255,0.14);border-radius:10px;box-shadow:0 24px 80px rgba(0,0,0,0.45);overflow:auto;padding:18px;';
+
+  if (type === 'image') {
+    const img = document.createElement('img');
+    img.src = data.image + '?v=20260609';
+    img.alt = data.name;
+    img.style.cssText = 'display:block;width:100%;height:auto;max-height:84vh;object-fit:contain;border-radius:8px;background:rgba(255,255,255,0.04);';
+    panel.appendChild(img);
+  } else {
+    const table = document.createElement('table');
+    table.style.cssText = 'width:100%;border-collapse:collapse;color:#fff;table-layout:fixed;';
+    table.innerHTML = '<thead><tr><th style="text-align:left;padding:10px 8px;color:#9ee0e8;">Product</th><th style="text-align:left;padding:10px 8px;color:#9ee0e8;">Cell Size</th><th style="text-align:left;padding:10px 8px;color:#9ee0e8;">Pitch mm</th><th style="text-align:left;padding:10px 8px;color:#9ee0e8;">Wall Thickness mm</th><th style="text-align:left;padding:10px 8px;color:#9ee0e8;">Open Area %</th><th style="text-align:left;padding:10px 8px;color:#9ee0e8;">Specific Surface Area</th></tr></thead><tbody>' + data.params.map((row) => '<tr>' + row.map((cell) => '<td style="padding:9px 8px;border-top:1px solid rgba(255,255,255,0.10);white-space:nowrap;">' + cell + '</td>').join('') + '</tr>').join('') + '</tbody>';
+    panel.appendChild(table);
+  }
+
+  overlay.appendChild(panel);
+  overlay.addEventListener('click', () => overlay.remove());
+  document.body.appendChild(overlay);
+}
+
+const productImage = document.querySelector('[data-product-image]');
+if (productImage) {
+  productImage.addEventListener('click', () => openProductOverlay('image'));
+}
+
+const productParamZoom = document.querySelector('[data-product-zoom]');
+if (productParamZoom) {
+  productParamZoom.addEventListener('click', (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    openProductOverlay('table');
+  });
+}
+
+productAppData[0] = {
+  name: 'Conventional SCR Catalyst',
+  image: './assets/product-108/product-1.png',
+  industries: ['Power Plants', 'Coal-Fired Power Plants'],
+  features: [
+    'Integrated extruded structure with active performance',
+    'High open area ratio with thin-wall catalyst above 80%',
+    'Low pressure drop',
+    'High specific surface area',
+    'Low SO2 conversion',
+    'Excellent abrasion resistance',
+    'Operating temperature range 300-420°C',
+    'Catalyst life > 24,000 hours'
+  ],
+  params: [
+    ['HDC-16TS', '16×16', '9.3', '0.86', '80.8', '384'],
+    ['HDC-18TN', '18×18', '8.2', '0.78', '80.0', '430'],
+    ['HDC-18TS', '18×18', '8.2', '0.83', '79.4', '428'],
+    ['HDC-20TN', '20×20', '7.4', '0.7', '80.8', '479'],
+    ['HDC-20TS', '20×20', '7.4', '0.8', '78.6', '473'],
+    ['HDC-20TW', '20×20', '7.4', '1', '72.8', '455'],
+    ['HDC-22TN', '22×22', '6.75', '0.59', '82.5', '533'],
+    ['HDC-25TN', '25×25', '5.9', '0.58', '80.2', '597']
+  ]
+};
+productAppData[1] = {
+  name: 'Low-Temperature SCR Catalyst',
+  image: './assets/product-108/product-2.png',
+  industries: ['Glass', 'Petrochemical', 'Metallurgy', 'Steel', 'Refractory Materials', 'Biomass Power Generation', 'Waste Incineration'],
+  features: [
+    'Integrated extruded structure with active performance',
+    'High open area ratio, low pressure drop',
+    'High specific surface area, high activity K value, low catalyst loading',
+    'Suitable for flue gas with SO2 concentration < 50 mg/m3',
+    'Operating temperature range 160-450°C',
+    'Catalyst life > 16,000 hours'
+  ],
+  params: [
+    ['HDW-16TS', '16×16', '9.3', '0.86', '80.8', '384'],
+    ['HDW-18TS', '18×18', '8.2', '0.83', '79.4', '428'],
+    ['HDW-20TS', '20×20', '7.4', '0.8', '78.6', '473'],
+    ['HDW-22TN', '22×22', '6.75', '0.59', '82.5', '533'],
+    ['HDW-25TN', '25×25', '5.9', '0.58', '80.2', '597'],
+    ['HDW-30TN', '30×30', '4.95', '0.5', '80.7', '719'],
+    ['HDW-35TN', '35×35', '4.25', '0.4', '81.3', '841'],
+    ['HDW-40TN', '40×40', '3.7', '0.37', '81.2', '961'],
+    ['HDW-45TN', '45×45', '3.3', '0.33', '81.2', '1082'],
+    ['HDW-50TS', '50×50', '3.0', '0.4', '75.3', '1157']
+  ]
+};
+productAppData[2] = {
+  name: 'Wide-Pore SCR Catalyst',
+  image: './assets/product-108/product-3.jpg',
+  industries: ['Gas Generator Sets', 'Marine Vessels', 'Steel Sintering Machines', 'Internal Combustion Engines', 'Glass Kilns'],
+  features: [
+    'Integrated extruded structure with active performance',
+    'High open area ratio (up to 80%)',
+    'Low pressure drop',
+    'High specific surface area',
+    'High activity K value',
+    'Operating temperature range 160-450°C',
+    'Catalyst life > 30,000 hours'
+  ],
+  params: [
+    ['HDD-30TN', '30×30', '4.95', '0.5', '80.7', '719'],
+    ['HDD-35TN', '35×35', '4.25', '0.4', '81.3', '841'],
+    ['HDD-40TN', '40×40', '3.7', '0.37', '81.2', '961'],
+    ['HDD-45TN', '45×45', '3.3', '0.33', '81.2', '1082'],
+    ['HDD-50TS', '50×50', '3.0', '0.4', '75.3', '1157'],
+    ['HDD-55TN', '55×55', '2.8', '0.28', '79', '1335'],
+    ['HDD-70TN', '70×70', '2.1', '0.22', '84', '1709'],
+    ['HDD-108TN', '108×108', '1.4', '0.22', '71', '2428']
+  ]
+};
+productAppData[3] = {
+  name: 'Dust-Tolerant SCR Catalyst for Harsh Conditions',
+  image: './assets/product-108/product-4.jpg',
+  industries: ['Cement Kilns', 'Waste Incineration Power Generation', 'Steel Sintering'],
+  features: [
+    'Integrated monolithic extruded structure',
+    'Full active surface design',
+    'Catalyst life > 24,000 hours',
+    'Suitable for high-dust flue gas conditions',
+    'Can help remove dioxins and VOC pollutants',
+    'Operating temperature range 160-450°C'
+  ],
+  params: [
+    ['HDC-13TN', '13×13', '11.35', '1.5', '73.7', '298'],
+    ['HDC-8×16TN', '16×8', '18.5×9.3', '1.2', '80.2', '290'],
+    ['HDC-30TN', '30×30', '4.95', '0.5', '80.7', '719'],
+    ['HDC-35TN', '35×35', '4.25', '0.4', '81.3', '841'],
+    ['HDC-40TN', '40×40', '3.7', '0.37', '81.2', '961'],
+    ['HDC-45TN', '45×45', '3.3', '0.33', '81.2', '1082'],
+    ['HDC-50TS', '50×50', '3.0', '0.4', '75.3', '1157']
+  ]
+};
+renderProductApp(0);
