@@ -786,43 +786,62 @@ h3 {
 .module-shell--light .eyebrow {
   color: var(--jata-green);
 }
-.qa-section--alt {
-  background: #eef3f6;
+.qa-section--alt,
+.qa-section.qa-section--alt {
+  background: linear-gradient(135deg, #10324d 0%, #0d4e7f 55%, #0b5f95 100%) !important;
+  color: var(--white) !important;
 }
-.qa-section--alt .qa-copy {
-  padding-top: 0;
+.qa-section--alt .qa-copy,
+.qa-section--alt .qa-visual,
+.qa-section.qa-section--alt .qa-copy,
+.qa-section.qa-section--alt .qa-visual {
+  background: transparent !important;
+  border: 0 !important;
 }
-.qa-section--alt .section-heading h2 {
-  color: var(--ink);
+.qa-section--alt .section-heading h2,
+.qa-section.qa-section--alt .section-heading h2 {
+  color: var(--white) !important;
 }
 .qa-section--alt .qa-lead,
 .qa-section--alt .qa-body,
-.qa-section--alt .qa-list p {
-  color: var(--muted);
-}
-.qa-section--alt .qa-copy,
-.qa-section--alt .qa-visual {
-  background: transparent;
-}
-.qa-section.qa-section--alt {
-  background: #eef3f6 !important;
-  color: var(--ink) !important;
-}
-.qa-section.qa-section--alt .section-heading h2 {
-  color: var(--ink) !important;
-}
+.qa-section--alt .qa-lines,
+.qa-section--alt .qa-line-body,
 .qa-section.qa-section--alt .qa-lead,
 .qa-section.qa-section--alt .qa-body,
-.qa-section.qa-section--alt .qa-item p {
-  color: var(--muted) !important;
+.qa-section.qa-section--alt .qa-lines,
+.qa-section.qa-section--alt .qa-line-body {
+  color: rgba(255,255,255,0.84) !important;
 }
-.qa-section.qa-section--alt .qa-item {
-  background: #fff !important;
-  border-color: rgba(16,50,77,0.08) !important;
+.qa-section--alt .qa-line,
+.qa-section.qa-section--alt .qa-line {
+  background: rgba(255,255,255,0.08) !important;
+  border-color: rgba(255,255,255,0.12) !important;
+  color: rgba(255,255,255,0.92) !important;
 }
+.qa-section--alt .qa-line:nth-child(odd),
+.qa-section--alt .qa-line:nth-child(even),
+.qa-section.qa-section--alt .qa-line:nth-child(odd),
+.qa-section.qa-section--alt .qa-line:nth-child(even) {
+  background: rgba(255,255,255,0.08) !important;
+}
+.qa-section--alt .qa-line-title,
+.qa-section.qa-section--alt .qa-line-title {
+  color: rgba(255,255,255,0.96) !important;
+}
+.qa-section--alt .qa-summary,
+.qa-section.qa-section--alt .qa-summary {
+  background: rgba(255,255,255,0.08) !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  color: rgba(255,255,255,0.92) !important;
+}
+.qa-section--alt .qa-visual,
 .qa-section.qa-section--alt .qa-visual {
-  background: #fff !important;
-  border: 1px solid var(--line) !important;
+  background: rgba(255,255,255,0.06) !important;
+  border: 1px solid rgba(255,255,255,0.10) !important;
+}
+.qa-section--alt .qa-visual img,
+.qa-section.qa-section--alt .qa-visual img {
+  object-fit: contain !important;
 }
 .qa-list {
   display: grid;
