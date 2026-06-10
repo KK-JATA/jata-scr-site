@@ -136,6 +136,7 @@ if (form) {
     });
 
     // Always show success to the user — never show errors
+    if (window.trackLead) window.trackLead(lead);
     showToast('Thank you for your inquiry.<br>Our engineers will contact you via email within 24 hours.');
     button.textContent = original;
     button.disabled = false;
@@ -212,13 +213,13 @@ const heroSlides = [
   {
     title: 'Why Choose Us',
     titleLine: '',
-    body: `<p class="hero-subtitle-why">Built for Long-Term Performance, Not Just Initial Cost</p>
+    body: `<p class="hero-subtitle-why">From Power Generation to Industrial Applications, Trusted Where Reliability Matters Most</p>
            <a class="btn primary hero-cta-why" href="#contact">Request Technical Consultation</a>
            <div class="hero-why-grid">
-             <div class="hero-why-card"><span class="hero-why-label">Energy Group Backing</span><span class="hero-why-text">Manufactured by Huadian Environmental, part of Huadian Group</span></div>
-             <div class="hero-why-card"><span class="hero-why-label">Fortune Global 500 Foundation</span><span class="hero-why-text">Backed by one of the world's leading energy enterprises</span></div>
-             <div class="hero-why-card"><span class="hero-why-label">Proven Project Experience</span><span class="hero-why-text">SCR catalysts supplied for projects across power and industrial sectors</span></div>
-             <div class="hero-why-card"><span class="hero-why-label">Lifecycle Partnership</span><span class="hero-why-text">From catalyst supply to replacement and recycling</span></div>
+             <div class="hero-why-card"><span class="hero-why-label">Technology Heritage</span><span class="hero-why-text">Built upon SCR catalyst technologies introduced from Cormetech (USA).</span></div>
+             <div class="hero-why-card"><span class="hero-why-label">Fortune Global 500 Backing</span><span class="hero-why-text">Manufactured by Huadian Environmental, part of China Huadian Corporation.</span></div>
+             <div class="hero-why-card"><span class="hero-why-label">1,000+ Catalyst Applications</span><span class="hero-why-text">SCR catalysts supplied for power generation and industrial emission control projects across China.</span></div>
+             <div class="hero-why-card"><span class="hero-why-label">High-Density Catalyst Expertise</span><span class="hero-why-text">One of the few manufacturers capable of stable production of high-density SCR catalyst structures.</span></div>
            </div>`,
     image: './assets/slide-2.jpg',
     alt: 'Industrial power plant'
@@ -341,15 +342,15 @@ function showToast(msg, isError) {
 // Company video: click to play, double-click fullscreen
 const companyVideo = document.getElementById('companyVideo');
 if (companyVideo) {
-  const hero = companyVideo.closest('.video-hero');
-  const playBtn = hero.querySelector('.video-play-btn');
-  playBtn.addEventListener('click', () => { companyVideo.play(); });
+  const wrap = companyVideo.closest('.company-video-wrap');
+  const playBtn = wrap.querySelector('.video-play-btn');
+  if (playBtn) playBtn.addEventListener('click', () => { companyVideo.play(); });
   companyVideo.addEventListener('dblclick', (e) => {
     e.preventDefault();
     if (companyVideo.requestFullscreen) companyVideo.requestFullscreen();
   });
-  companyVideo.addEventListener('play', () => hero.classList.add('playing'));
-  companyVideo.addEventListener('pause', () => hero.classList.remove('playing'));
+  companyVideo.addEventListener('play', () => wrap.classList.add('playing'));
+  companyVideo.addEventListener('pause', () => wrap.classList.remove('playing'));
 }
 
 // Continent → Country cascading dropdown
