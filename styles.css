@@ -2066,6 +2066,17 @@ input::placeholder, textarea::placeholder { color: #c0c8d0; }
   border-left: 3px solid #2c8b4f;
   box-shadow: none;
 }
+.product-learn-link {
+  display: block;
+  text-align: right;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #2c8b4f;
+  text-decoration: none;
+  margin-bottom: 4px;
+}
+.product-learn-link:hover { text-decoration: underline; }
 .product-app-stage {
   min-width: 0;
   height: 100%;

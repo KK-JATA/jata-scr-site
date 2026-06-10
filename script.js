@@ -557,6 +557,7 @@ function renderProductApp(index) {
   // Restore default 4-box grid if it was replaced
   if (!stage.querySelector('.product-app-grid')) {
     stage.innerHTML =
+      '<a href="./scr-catalyst.html" class="product-learn-link">LEARN MORE</a>' +
       '<div class="product-app-grid">' +
         '<figure class="product-app-card product-app-image">' +
           '<img loading="lazy" src="" alt="" data-product-image />' +
