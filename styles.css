@@ -2071,6 +2071,17 @@ input::placeholder, textarea::placeholder { color: #c0c8d0; }
   height: 100%;
   overflow: hidden;
 }
+.product-learn-more {
+  display: block;
+  text-align: right;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #2c8b4f;
+  text-decoration: none;
+  margin-bottom: 6px;
+}
+.product-learn-more:hover { text-decoration: underline; }
 .product-app-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
