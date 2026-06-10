@@ -594,6 +594,43 @@ function renderProductApp(index) {
     });
     return;
   }
+
+  if (data.name === 'SCR Catalyst for Marine Internal Combustion Engines') {
+    stage.innerHTML =
+      '<div class="marine-showcase">' +
+        '<div class="marine-certs">' +
+          '<figure class="marine-cert-single">' +
+            '<img loading="lazy" src="./assets/cert-classification.png" alt="Classification Society Certification" onclick="zoomCert(this)" />' +
+            '<figcaption>China\'s First SCR Catalyst Enterprise with Classification Society Certification</figcaption>' +
+          '</figure>' +
+          '<figure class="marine-supplier-card">' +
+            '<img loading="lazy" src="./assets/cert-supplier.png" alt="CSSC Power Group Excellent Supplier Certificate" onclick="zoomCert(this)" />' +
+            '<figcaption>CSSC Power Group Excellent Supplier</figcaption>' +
+          '</figure>' +
+        '</div>' +
+        '<div class="marine-hero-col">' +
+          '<div class="marine-body marine-body-compact">' +
+            '<p class="dc-showcase-eyebrow">SCR Solutions</p>' +
+            '<h2 class="dc-showcase-headline">Marine SCR Catalyst Solutions</h2>' +
+            '<p class="dc-showcase-sub">Certified for Marine Engine Emission Control Applications</p>' +
+            '<p class="dc-showcase-desc">Designed for marine engine SCR systems and compliance with IMO NOx emission requirements.</p>' +
+            '<div class="dc-feature-grid dc-feature-grid-compact">' +
+              '<div class="dc-feature-card dc-feature-card-compact"><strong>Classification Society Approved</strong><span>Certified by leading international marine bodies</span></div>' +
+              '<div class="dc-feature-card dc-feature-card-compact"><strong>IMO Tier III Ready</strong><span>Compliant with latest NOx emission standards</span></div>' +
+              '<div class="dc-feature-card dc-feature-card-compact"><strong>High Durability</strong><span>Engineered for harsh marine operating conditions</span></div>' +
+              '<div class="dc-feature-card dc-feature-card-compact"><strong>Proven Marine Deployment</strong><span>Validated in commercial vessel applications</span></div>' +
+            '</div>' +
+          '</div>' +
+          '<figure class="marine-hero-image">' +
+            '<img loading="lazy" src="./assets/slide-5.jpg" alt="Commercial vessel on ocean" />' +
+          '</figure>' +
+        '</div>' +
+      '</div>';
+    document.querySelectorAll('.product-app-item').forEach((btn, btnIndex) => {
+      btn.classList.toggle('is-active', btnIndex === index);
+    });
+    return;
+  }
   const image = stage.querySelector('[data-product-image]');
   const industries = stage.querySelector('[data-product-industries]');
   const features = stage.querySelector('[data-product-features]');
@@ -649,6 +686,27 @@ document.querySelectorAll('.product-app-item').forEach((btn) => {
   });
 });
 
+function zoomCert(img) {
+  const overlay = document.createElement('div');
+  overlay.style.cssText = 'position:fixed;inset:0;z-index:9999;background:rgba(7,19,32,0.92);display:flex;align-items:center;justify-content:center;padding:24px;cursor:pointer;';
+  const panel = document.createElement('div');
+  panel.style.cssText = 'max-width:90vw;max-height:90vh;background:#fff;border-radius:8px;padding:16px;box-shadow:0 24px 80px rgba(0,0,0,0.45);';
+  const fullImg = document.createElement('img');
+  fullImg.src = img.src;
+  fullImg.alt = img.alt;
+  fullImg.style.cssText = 'display:block;max-width:100%;max-height:80vh;object-fit:contain;';
+  panel.appendChild(fullImg);
+  if (img.closest('figure') && img.closest('figure').querySelector('figcaption')) {
+    const cap = document.createElement('p');
+    cap.textContent = img.closest('figure').querySelector('figcaption').textContent;
+    cap.style.cssText = 'margin:10px 0 0;text-align:center;font-size:14px;color:#51606b;font-weight:600;';
+    panel.appendChild(cap);
+  }
+  overlay.appendChild(panel);
+  overlay.addEventListener('click', () => overlay.remove());
+  document.body.appendChild(overlay);
+}
+
 function openProductOverlay(type) {
   const stage = document.querySelector('[data-product-stage]');
   if (!stage) return;
@@ -684,12 +742,15 @@ if (productImage) {
   productImage.addEventListener('click', () => openProductOverlay('image'));
 }
 
-const productParamZoom = document.querySelector('[data-product-zoom]');
-if (productParamZoom) {
-  productParamZoom.addEventListener('click', (event) => {
-    event.preventDefault();
-    event.stopPropagation();
-    openProductOverlay('table');
+const productStage = document.querySelector('[data-product-stage]');
+if (productStage) {
+  productStage.addEventListener('click', (event) => {
+    const zoomBtn = event.target.closest('[data-product-zoom]');
+    if (zoomBtn) {
+      event.preventDefault();
+      event.stopPropagation();
+      openProductOverlay('table');
+    }
   });
 }
 

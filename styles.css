@@ -2330,6 +2330,145 @@ input::placeholder, textarea::placeholder { color: #c0c8d0; }
   .dc-showcase-hero img { min-height: 260px; }
 }
 
+/* Marine product showcase */
+.marine-showcase {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(20px, 2.5vw, 36px);
+  align-items: start;
+  min-height: 0;
+}
+.marine-certs {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.marine-cert-single {
+  margin: 0;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid rgba(16,50,77,0.1);
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+.marine-cert-single:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(16,50,77,0.1);
+}
+.marine-cert-single img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 180px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+.marine-cert-single figcaption {
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #51606b;
+  line-height: 1.4;
+}
+.marine-badge {
+  padding: 14px 16px;
+  background: linear-gradient(135deg, #10324d, #0d4e7f);
+  border-radius: 8px;
+  text-align: center;
+  color: #fff;
+}
+.marine-badge strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+.marine-badge span {
+  display: block;
+  font-size: 12px;
+  color: rgba(255,255,255,0.82);
+}
+.marine-badge-sub {
+  margin: 0;
+  text-align: center;
+  font-size: 12px;
+  color: #51606b;
+  font-weight: 600;
+}
+.marine-supplier-card {
+  margin: 0;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid rgba(16,50,77,0.1);
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+.marine-supplier-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(16,50,77,0.1);
+}
+.marine-supplier-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 180px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+.marine-supplier-card figcaption {
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #51606b;
+  line-height: 1.4;
+}
+.marine-hero-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: 100%;
+}
+.marine-hero-image {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #0b2436;
+  margin-top: auto;
+}
+.marine-hero-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 250px;
+  object-fit: cover;
+}
+.marine-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.marine-body-compact {
+  gap: 4px;
+}
+.marine-body-compact .dc-showcase-headline { font-size: clamp(22px, 2.2vw, 28px); }
+.marine-body-compact .dc-showcase-sub { font-size: 13px; }
+.marine-body-compact .dc-showcase-desc { font-size: 12px; line-height: 1.4; }
+.dc-feature-grid-compact { gap: 6px; }
+.dc-feature-card-compact { padding: 8px 10px; }
+.dc-feature-card-compact strong { font-size: 11px; margin-bottom: 2px; }
+.dc-feature-card-compact span { font-size: 11px; line-height: 1.3; }
+@media (max-width: 900px) {
+  .marine-showcase {
+    grid-template-columns: 1fr;
+  }
+  .marine-hero-img img { min-height: 220px; }
+}
+
 @media (max-width: 980px) {
   .product-app-layout {
     grid-template-columns: 1fr;
