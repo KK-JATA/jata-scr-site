@@ -553,13 +553,13 @@ function acceptCookies(){localStorage.setItem('cookiesAccepted','1');document.ge
   // Curtains slide open quickly
   setTimeout(function(){
     p.classList.add('is-open');
-  }, 100);
+  }, 1500);
 
   // Remove preloader after curtains finish
   setTimeout(function(){
     p.classList.add('is-done');
-    setTimeout(function(){ p.remove(); }, 200);
-  }, 200);
+    setTimeout(function(){ p.remove(); }, 400);
+  }, 2500);
 })();
 </script>
 <script src="./config.js"></script>
