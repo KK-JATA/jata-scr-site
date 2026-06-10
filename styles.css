@@ -1257,7 +1257,8 @@ h3 {
   color: rgba(255,255,255,0.9);
   text-shadow: 0 2px 12px rgba(0,0,0,0.4);
 }
-.video-hero.playing .video-play-btn { opacity: 0; pointer-events: none; }
+.video-hero.playing .video-play-btn,
+.company-video-wrap.playing .video-play-btn { opacity: 0; pointer-events: none; }
 .video-caption h3 { font-size: 20px; font-weight: 800; color: var(--ink); margin-bottom: 8px; }
 .video-caption-text { font-size: 15px; color: var(--muted); line-height: 1.6; }
 
@@ -1303,6 +1304,7 @@ select { appearance: auto; }
   color: var(--white);
 }
 .site-footer p { margin: 8px 0 0; color: rgba(255,255,255,0.68); font-size: 14px; }
+.footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
 .footer-links { display: flex; gap: 20px; color: rgba(255,255,255,0.8); font-size: 14px; }
 
 @media (max-width: 920px) {
@@ -2562,7 +2564,7 @@ input::placeholder, textarea::placeholder { color: #c0c8d0; }
   justify-content: flex-end;
 }
 .trust-gallery .trust-card:nth-child(-n+4) img {
-  height: 380px;
+  height: 460px;
   object-fit: contain;
   filter: brightness(1.12);
   transition: transform 250ms ease;
@@ -2581,7 +2583,7 @@ input::placeholder, textarea::placeholder { color: #c0c8d0; }
   margin-top: 10px;
 }
 .trust-gallery .trust-card:nth-child(n+5) {
-  justify-content: stretch;
+  justify-content: flex-end;
 }
 .trust-gallery .trust-card:nth-child(n+5) img {
   flex: 1;
@@ -2589,6 +2591,9 @@ input::placeholder, textarea::placeholder { color: #c0c8d0; }
   min-height: 0;
   max-height: none;
   transition: transform 250ms ease;
+}
+.trust-gallery .trust-card:nth-child(6) img {
+  flex: 0.85 1 auto;
 }
 .trust-gallery .trust-card:nth-child(n+5):hover img {
   transform: scale(1.06);
@@ -2606,6 +2611,197 @@ input::placeholder, textarea::placeholder { color: #c0c8d0; }
   .trust-stats { grid-template-columns: 1fr; }
   .trust-gallery { grid-template-columns: 1fr; }
   .trust-card-featured { grid-column: span 1; }
+}
+
+.company-section {
+  padding: clamp(56px, 7vw, 96px) clamp(20px, 5vw, 72px);
+}
+.company-section .eyebrow { color: rgba(255,255,255,0.7); }
+.company-headline {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(36px, 4.2vw, 54px);
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.08;
+  margin: 0 0 12px;
+  max-width: 100%;
+}
+.company-layout {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: clamp(24px, 3vw, 44px);
+  align-items: start;
+}
+.company-sub {
+  color: rgba(255,255,255,0.78);
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: clamp(24px, 3vw, 36px);
+  max-width: 620px;
+}
+.company-block {
+  margin-bottom: 24px;
+}
+.company-block-title {
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0 0 8px;
+}
+.company-block-sub {
+  color: rgba(255,255,255,0.82);
+  font-size: 14px;
+  line-height: 1.55;
+  margin: 0 0 16px;
+}
+.company-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.company-stat {
+  padding: 18px 16px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+}
+.company-stat strong {
+  display: block;
+  font-size: clamp(30px, 3vw, 40px);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.company-stat span {
+  display: block;
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.35;
+}
+.company-highlights {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.company-highlight {
+  padding: 10px 12px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
+  border-left: 3px solid #2c8b4f;
+  color: rgba(255,255,255,0.88);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+.company-media {
+  position: relative;
+}
+.company-video-wrap {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.company-video-wrap video {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+}
+.company-badge {
+  position: absolute;
+  padding: 8px 14px;
+  background: rgba(15,23,34,0.92);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 6px;
+  backdrop-filter: blur(12px);
+}
+.company-badge strong {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  color: #2c8b4f;
+  letter-spacing: 0.06em;
+  margin-bottom: 2px;
+}
+.company-badge span {
+  display: block;
+  font-size: 11px;
+  color: rgba(255,255,255,0.82);
+}
+.company-badge-fortune {
+  top: 12px;
+  right: 12px;
+}
+.company-badge-employees {
+  bottom: 12px;
+  left: 12px;
+}
+@media (max-width: 900px) {
+  .company-layout { grid-template-columns: 1fr; }
+  .company-stats { grid-template-columns: 1fr 1fr; }
+}
+
+.alibaba-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  color: rgba(255,255,255,0.7);
+  font-size: 13px;
+  font-weight: 600;
+}
+.alibaba-link img { height: 20px; }
+.alibaba-link:hover { color: #ff6600; }
+
+.why-section {
+  padding: clamp(56px, 7vw, 96px) clamp(20px, 5vw, 72px);
+}
+.why-sub {
+  max-width: 640px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.55;
+  margin-bottom: clamp(28px, 3vw, 40px);
+}
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.why-card {
+  padding: 24px 20px;
+  background: #fff;
+  border: 1px solid rgba(16,50,77,0.06);
+  border-radius: 10px;
+  box-shadow: 0 8px 28px rgba(16,50,77,0.04);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.why-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(16,50,77,0.08);
+}
+.why-card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 800;
+  color: #10324d;
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+.why-card p {
+  margin: 0;
+  font-size: 14px;
+  color: #51606b;
+  line-height: 1.5;
+}
+@media (max-width: 900px) {
+  .why-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .why-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 980px) {
