@@ -534,10 +534,25 @@ const productAppData = [
   }
 ];
 
+var preloadedProducts = {};
+function preloadProductImages() {
+  productAppData.forEach(function(d) {
+    if (!preloadedProducts[d.image]) {
+      var img = new Image();
+      img.src = d.image + '?v=20260609';
+      preloadedProducts[d.image] = true;
+    }
+  });
+}
 function renderProductApp(index) {
-  const stage = document.querySelector('[data-product-stage]');
+  var stage = document.querySelector('[data-product-stage]');
   if (!stage) return;
-  const data = productAppData[index] || productAppData[0];
+  var data = productAppData[index] || productAppData[0];
+  if (!preloadedProducts[data.image]) {
+    var img = new Image();
+    img.src = data.image + '?v=20260609';
+    preloadedProducts[data.image] = true;
+  }
 
   // Restore default 4-box grid if it was replaced
   if (!stage.querySelector('.product-app-grid')) {
@@ -709,6 +724,13 @@ function renderProductApp(index) {
 })();
 }
 
+var prodNav = document.querySelector('.product-app-nav');
+if (prodNav) {
+  var preloadObserver = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting) { preloadProductImages(); preloadObserver.disconnect(); }
+  }, { threshold: 0.1 });
+  preloadObserver.observe(prodNav);
+}
 document.querySelectorAll('.product-app-item').forEach((btn) => {
   btn.addEventListener('click', () => {
     renderProductApp(Number(btn.getAttribute('data-product-index')));
