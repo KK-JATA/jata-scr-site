@@ -370,23 +370,66 @@
       </div>
     </section>
 
-    <section class="section module-shell module-shell--light lineage-band split-media" id="lineage">
-      <div class="split-media-copy">
-        <div class="section-heading">
-          <p class="eyebrow">Technical Lineage</p>
-          <h2>Cormetech heritage is not a slogan. It is the technical entry point many overseas buyers already understand.</h2>
+    <section class="section module-shell module-shell--light trust-section" id="lineage">
+      <div class="section-heading">
+        <p class="eyebrow">Trust &amp; Qualifications</p>
+        <h2>Recognized Through Certifications, Awards and Proprietary Technologies</h2>
+      </div>
+      <p class="trust-sub">Our long-term commitment to environmental technology, manufacturing quality, and engineering innovation is supported by industry certifications, recognized achievements, and a growing portfolio of intellectual property assets.</p>
+
+      <div class="trust-stats" id="trustStats">
+        <div class="trust-stat-card">
+          <strong data-count="50" data-suffix="+">0+</strong>
+          <span>Patents &amp; Intellectual Property Assets</span>
         </div>
-        <p>For international visitors, the story should be simple: proven SCR catalyst technology, authorized technical inheritance, then localized manufacturing and engineering refinement. That gives us a stronger position than a generic Chinese supplier, while still offering better economics than many large foreign chemical brands.</p>
-        <div class="lineage-points">
-          <div><strong>Cormetech origin</strong><span>Recognized legacy technology lineage with official authorization</span></div>
-          <div><strong>108-cell capability</strong><span>Specialized catalyst form factor that only a limited number of suppliers can deliver globally</span></div>
-          <div><strong>CNAS testing</strong><span>Standardized performance evaluation and quality control support</span></div>
-          <div><strong>Classification society certification</strong><span>Important proof point for marine and special application projects</span></div>
+        <div class="trust-stat-card">
+          <strong data-count="20" data-suffix="+">0+</strong>
+          <span>Industry Certifications</span>
+        </div>
+        <div class="trust-stat-card">
+          <strong data-count="10" data-suffix="+">0+</strong>
+          <span>Technology &amp; Innovation Awards</span>
+        </div>
+        <div class="trust-stat-card">
+          <strong data-count="28" data-suffix="+">0+</strong>
+          <span>Years of Industrial Experience</span>
         </div>
       </div>
-      <figure class="split-media-visual">
-        <img loading="lazy" src="./assets/factory-6.jpg" alt="108-cell SCR catalyst product detail" />
-      </figure>
+
+      <div class="trust-gallery" id="trustGallery">
+        <figure class="trust-card">
+          <img loading="lazy" src="./assets/certs/cert-srdi.png" alt="SRDI Enterprise Certification" onclick="zoomCert(this)" />
+          <figcaption>Specialized &amp; Sophisticated Enterprise</figcaption>
+        </figure>
+        <figure class="trust-card">
+          <img loading="lazy" src="./assets/certs/cert-mechanical-award.png" alt="Mechanical Industry Award" onclick="zoomCert(this)" />
+          <figcaption>Mechanical Industry Science &amp; Technology Award</figcaption>
+        </figure>
+        <figure class="trust-card">
+          <img loading="lazy" src="./assets/certs/cert-hightech.png" alt="High-Tech Enterprise Certification" onclick="zoomCert(this)" />
+          <figcaption>National High-Tech Enterprise</figcaption>
+        </figure>
+        <figure class="trust-card">
+          <img loading="lazy" src="./assets/certs/cert-gazelle.png" alt="Gazelle Enterprise Certification" onclick="zoomCert(this)" />
+          <figcaption>Gazelle Enterprise Recognition</figcaption>
+        </figure>
+        <figure class="trust-card trust-card-large">
+          <img loading="lazy" src="./assets/certs/cert-cnas.png" alt="CNAS Accreditation" onclick="zoomCert(this)" />
+          <figcaption>CNAS Accredited Testing Center</figcaption>
+        </figure>
+        <figure class="trust-card trust-card-large">
+          <img loading="lazy" src="./assets/certs/cert-patent-4.png" alt="Patent Collection" onclick="zoomCert(this)" />
+          <figcaption>Patent Portfolio — SCR Catalyst Technology</figcaption>
+        </figure>
+        <figure class="trust-card trust-card-large">
+          <img loading="lazy" src="./assets/certs/cert-patent-3.png" alt="Patent Certificate" onclick="zoomCert(this)" />
+          <figcaption>Utility Model Patent — Manufacturing Process</figcaption>
+        </figure>
+        <figure class="trust-card trust-card-large">
+          <img loading="lazy" src="./assets/certs/cert-patent-2.png" alt="Patent Certificate" onclick="zoomCert(this)" />
+          <figcaption>Invention Patent — Catalyst Formulation</figcaption>
+        </figure>
+      </div>
     </section>
 
     <section class="section module-shell module-shell--dark insights-band" id="insights">
@@ -475,16 +518,16 @@ function acceptCookies(){localStorage.setItem('cookiesAccepted','1');document.ge
   var isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
   if (isMobile) { p.remove(); return; }
 
-  // Curtains slide open after 2s
+  // Curtains slide open quickly
   setTimeout(function(){
     p.classList.add('is-open');
-  }, 2000);
+  }, 100);
 
   // Remove preloader after curtains finish
   setTimeout(function(){
     p.classList.add('is-done');
-    setTimeout(function(){ p.remove(); }, 400);
-  }, 3100);
+    setTimeout(function(){ p.remove(); }, 200);
+  }, 200);
 })();
 </script>
 <script src="./config.js"></script>

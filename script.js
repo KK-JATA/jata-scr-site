@@ -678,6 +678,34 @@ function renderProductApp(index) {
   document.querySelectorAll('.product-app-item').forEach((btn, btnIndex) => {
     btn.classList.toggle('is-active', btnIndex === index);
   });
+
+// Count-up animation for trust stats
+(function() {
+  var statsSection = document.getElementById('trustStats');
+  if (!statsSection) return;
+  var animated = false;
+  var observer = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting && !animated) {
+      animated = true;
+      var cards = statsSection.querySelectorAll('[data-count]');
+      cards.forEach(function(el) {
+        var target = parseInt(el.getAttribute('data-count'));
+        var suffix = el.getAttribute('data-suffix') || '';
+        var duration = 1500;
+        var start = performance.now();
+        function update(now) {
+          var elapsed = now - start;
+          var progress = Math.min(elapsed / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.round(target * eased) + suffix;
+          if (progress < 1) requestAnimationFrame(update);
+        }
+        requestAnimationFrame(update);
+      });
+    }
+  }, { threshold: 0.3 });
+  observer.observe(statsSection);
+})();
 }
 
 document.querySelectorAll('.product-app-item').forEach((btn) => {
